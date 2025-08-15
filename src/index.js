@@ -1,3 +1,2 @@
 import './styles.css';
-
-console.log("test")
+import createTodo from './todo';

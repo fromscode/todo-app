@@ -2,11 +2,11 @@ import { displayProjectName, displayTodos } from './dom.js';
 import addAllListeners from './addEventListeners.js';
 
 
-function initialize(defaultProject) {
-    displayProjectName(defaultProject.getProjectName());
-    displayTodos(defaultProject.getTodoList());
+function initialize(project) {
+    displayProjectName(project);
+    displayTodos(project);
 
-    addAllListeners(defaultProject);
+    addAllListeners(project);
 }
 
 export default initialize;

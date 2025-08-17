@@ -1,36 +1,36 @@
 import { displayTodos } from './dom.js';
 
-function addToggleListeners(defaultProject) {
+function addToggleListeners(project) {
     const toggleBtns = document.querySelectorAll(".toggleButton");
 
     toggleBtns.forEach(button => {
         button.addEventListener('click', () => {
             const todoId = button.parentElement.parentElement.id;
             console.log(todoId);
-            defaultProject.toggleTodo(todoId);
-            displayTodos(defaultProject.getTodoList());
-            addAllListeners(defaultProject);
+            project.toggleTodo(todoId);
+            displayTodos(project);
+            addAllListeners(project);
         })
     })
 }
 
-function addRemoveListeners(defaultProject) {
+function addRemoveListeners(project) {
     const removeBtns = document.querySelectorAll(".removeButton");
 
     removeBtns.forEach(button => {
         button.addEventListener('click', () => {
             const todoId = button.parentElement.parentElement.id;
             console.log(todoId);
-            defaultProject.removeTodo(todoId);
-            displayTodos(defaultProject.getTodoList());
-            addAllListeners(defaultProject);
+            project.removeTodo(todoId);
+            displayTodos(project);
+            addAllListeners(project);
         })
     })
 }
 
-function addAllListeners(defaultProject) {
-    addToggleListeners(defaultProject);
-    addRemoveListeners(defaultProject);
+function addAllListeners(project) {
+    addToggleListeners(project);
+    addRemoveListeners(project);
 }
 
 export default addAllListeners;

@@ -1,7 +1,8 @@
 const tBody = document.querySelector("tbody");
 const h1 = document.querySelector("h1");
 
-function displayTodos(todoList) {
+function displayTodos(project) {
+    const todoList = project.getTodoList();
     clearTable();
     for (const todo of todoList) {
         const tr = document.createElement("tr");
@@ -50,8 +51,8 @@ function clearTable() {
     tBody.textContent = "";
 }
 
-function displayProjectName(projectName) {
-    h1.textContent += projectName;
+function displayProjectName(project) {
+    h1.textContent += project.getName();
 }
 
 export { displayProjectName, displayTodos };

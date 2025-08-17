@@ -28,9 +28,16 @@ function createProject() {
         }
     }
 
+    const displayProject = () => {
+        console.log("Project Id: " + id);
+        for (const todo of todoList) {
+            todo.displayTodo();
+        }
+    }
+
 
     return { getId, getTodoList, toggleTodo, 
-        addTodo, removeTodo };
+        addTodo, removeTodo, displayProject };
 }
 
 export default createProject;

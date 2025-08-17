@@ -26,13 +26,21 @@ function displayTodos(todoList) {
         completed.textContent = todo.getCompleted() ? "Yes" : "No";
 
         const toggleButton = document.createElement("td");
-        const btn = document.createElement("button");
-        btn.textContent = "Done / Undone";
-        btn.type = "button";
-        btn.className = "toggleButton"
-        toggleButton.append(btn);
+        const tBtn = document.createElement("button");
+        tBtn.textContent = "Done / Undone";
+        tBtn.type = "button";
+        tBtn.className = "toggleButton"
+        toggleButton.append(tBtn);
 
-        tr.append(title, desc, dueDate, priority, notes, completed, toggleButton);
+        const removeButton = document.createElement("td");
+        const rBtn = document.createElement("button");
+        rBtn.textContent = "Remove";
+        rBtn.type = "button";
+        rBtn.className = "removeButton"
+        removeButton.append(rBtn);
+
+        tr.append(title, desc, dueDate, priority, notes, completed,
+            toggleButton, removeButton);
 
         tBody.append(tr);
     }
@@ -46,4 +54,4 @@ function displayProjectName(projectName) {
     h1.textContent += projectName;
 }
 
-export {displayProjectName, displayTodos};
+export { displayProjectName, displayTodos };

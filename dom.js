@@ -1,4 +1,5 @@
 const tBody = document.querySelector("tbody");
+const h1 = document.querySelector("h1");
 
 function displayTodos(todoList) {
     clearTable();
@@ -34,4 +35,8 @@ function clearTable() {
     tBody.textContent = "";
 }
 
-export default displayTodos;
+function displayProjectName(projectName) {
+    h1.textContent += projectName;
+}
+
+export {displayProjectName, displayTodos};

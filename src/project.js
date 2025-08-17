@@ -1,9 +1,10 @@
-function createProject() {
+function createProject(projectName) {
     let id = crypto.randomUUID();
     const todoList = [];
 
     const getId = () => id;
     const getTodoList = () => todoList;
+    const getProjectName = () => projectName;
 
     const addTodo = (todo) => {
         todo.setProjectId(id);
@@ -37,7 +38,7 @@ function createProject() {
 
 
     return { getId, getTodoList, toggleTodo, 
-        addTodo, removeTodo, displayProject };
+        addTodo, removeTodo, displayProject, getProjectName };
 }
 
 export default createProject;

@@ -1,7 +1,7 @@
 import './styles.css';
 import createTodo from './todo.js';
 import createProject from './project.js';
-import { displayProjectName, displayTodos } from '../dom.js';
+import { displayProjectName, displayTodos } from './dom.js';
 
 const defaultProject = createProject("default");
 

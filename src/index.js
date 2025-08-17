@@ -2,7 +2,6 @@ import './styles.css';
 import createTodo from './todo.js';
 import createProject from './project.js';
 import initialize from './init.js';
-import addAllListeners from './addEventListeners.js';
 
 const defaultProject = createProject("default");
 

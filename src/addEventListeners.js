@@ -1,4 +1,4 @@
-import { displayProjectName, displayTodos } from './dom.js';
+import { displayTodos } from './dom.js';
 
 function addToggleListeners(defaultProject) {
     const toggleBtns = document.querySelectorAll(".toggleButton");

@@ -68,7 +68,17 @@ h6 {
     isolation: isolate;
 }
 
+table {
+    border-collapse: collapse;
+}
+
 
 body {
-    background-color: purple;
+    background-color: beige;
+}
+
+tr > * {
+    margin: 0px;
+    padding: 2px;
+    border: 2px solid black;
 }

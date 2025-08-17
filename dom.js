@@ -25,7 +25,14 @@ function displayTodos(todoList) {
         const completed = document.createElement("td");
         completed.textContent = todo.getCompleted() ? "Yes" : "No";
 
-        tr.append(title, desc, dueDate, priority, notes, completed);
+        const toggleButton = document.createElement("td");
+        const btn = document.createElement("button");
+        btn.textContent = "Done / Undone";
+        btn.type = "button";
+        btn.className = "toggleButton"
+        toggleButton.append(btn);
+
+        tr.append(title, desc, dueDate, priority, notes, completed, toggleButton);
 
         tBody.append(tr);
     }

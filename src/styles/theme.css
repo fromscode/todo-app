@@ -1,0 +1,37 @@
+.sidebar {
+    background-color: var(--color-sidebar);
+}
+
+li {
+    border-top: 1px solid var(--color-card-border);
+}
+
+.checkbox {
+    border-color: black;
+}
+
+.checkbox.selected {
+    background-color: #4cafac;
+    border-color: #4cafac;
+}
+
+.main {
+    background-color: var(--color-main);
+}
+
+
+.Extreme {
+    color: var(--color-extreme-priority);
+}
+
+.High {
+    color: var(--color-high-priority);
+}
+
+.Medium {
+    color: var(--color-medium-priority);
+}
+
+.Low {
+    color: var(--color-low-priority);
+}

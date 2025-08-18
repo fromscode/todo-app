@@ -2,28 +2,7 @@ body {
     font-weight: normal;
 }
 
-.checkbox.selected {
-    background-color: #4cafac;
-    border-color: #4cafac;
-}
-
 .todo-info.completed {
     opacity: 0.3;
     text-decoration-line: line-through;
-}
-
-.Extreme {
-    color: var(--color-extreme-priority);
-}
-
-.High {
-    color: var(--color-high-priority);
-}
-
-.Medium {
-    color: var(--color-medium-priority);
-}
-
-.Low {
-    color: var(--color-low-priority);
 }

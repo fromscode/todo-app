@@ -7,5 +7,7 @@
     --color-medium-priority: #FBC02D;
     --color-low-priority: #388E3C;
 
+    --color-card-border: #c1c1c1;
+
     --font-base: "Inter", sans-serif;
 }

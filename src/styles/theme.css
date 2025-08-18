@@ -14,6 +14,12 @@ li {
     border-color: black;
 }
 
+ 
+.checkbox:hover {
+    background-color: var(--color-checkbox-hover);
+    border-color: var(--color-checkbox-hover);
+}
+
 .checkbox.selected {
     background-color: #000;
     border-color: #000;
@@ -56,4 +62,16 @@ li {
 
 .Low {
     color: var(--color-low-priority);
+}
+
+.add-btn {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    background-color: var(--color-add-btn);
+    border-color: var(--color-add-btn);
+}
+
+.add-btn:hover {
+    background-color: var(--color-add-btn-hover);
 }

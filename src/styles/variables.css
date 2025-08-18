@@ -6,8 +6,13 @@
     --color-high-priority: #F57C00;
     --color-medium-priority: #FBC02D;
     --color-low-priority: #388E3C;
+    --color-checkbox-hover: grey;
 
     --color-card-border: #c1c1c1;
 
     --font-base: "Inter", sans-serif;
+    
+
+    --color-add-btn: skyblue;
+    --color-add-btn-hover: rgb(42, 160, 206);
 }

@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
 </head>
+
 <body>
-    <h1>Project Name: </h1>
-    <div class="main">
-        <table class="todos">
-            <thead>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Due Date</th>
-                <th>Priority</th>
-                <th>Notes</th>
-                <th>Completed</th>
-                <th>Toggle</th>
-                <th>Remove</th>
-            </thead>
+    <div class="sidebar"></div>
 
-            <tbody>
+    <main class="main">
+        <h1>Project Name: </h1>
+        <div class="main">
+            <table class="todos">
+                <thead>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Priority</th>
+                    <th>Notes</th>
+                    <th>Completed</th>
+                    <th>Toggle</th>
+                    <th>Remove</th>
+                </thead>
 
-            </tbody>
-        </table>
+                <tbody>
 
-        <button type="button" class="add-btn">Add</button>
+                </tbody>
+            </table>
 
-        <form>
-            <label for="title">Title: </label>
-            <input type="text" name="title" id="title">
+            <button type="button" class="add-btn">Add</button>
 
-            <label for="description">Description: </label>
-            <input type="text" name="description" id="description">
+            <form>
+                <label for="title">Title: </label>
+                <input type="text" name="title" id="title">
 
-            <label for="description">Due Date: </label>
-            <input type="date" name="dueDate" id="dueDate">
+                <label for="description">Description: </label>
+                <input type="text" name="description" id="description">
 
-            <label for="priority">Priority: </label>
-            <select name="priority" id="priority">
-                <option value="p1">P1</option>
-                <option value="p2">P2</option>
-                <option value="p3">P3</option>
-                <option value="p4">P4</option>
-                <option value="p5">P5</option>
-            </select>
+                <label for="description">Due Date: </label>
+                <input type="date" name="dueDate" id="dueDate">
 
-            <label for="notes">Notes: </label>
-            <input type="text" id="notes">
+                <label for="priority">Priority: </label>
+                <select name="priority" id="priority">
+                    <option value="p1">P1</option>
+                    <option value="p2">P2</option>
+                    <option value="p3">P3</option>
+                    <option value="p4">P4</option>
+                    <option value="p5">P5</option>
+                </select>
 
-            <button type="button" id="submit-btn">Submit</button>
-        </form>
-    </div>
+                <label for="notes">Notes: </label>
+                <input type="text" id="notes">
+
+                <button type="button" id="submit-btn">Submit</button>
+            </form>
+        </div>
+    </main>
 </body>
+
 </html>

@@ -37,7 +37,8 @@ function addAddButtonListener(project) {
     const addBtn = document.querySelector(".add-btn");
     addBtn.addEventListener('click', () => {
         const form = document.querySelector("form");
-        form.style.display = "flex";
+        form.classList.toggle("flex");
+        form.classList.toggle("column");
     })
 }
 

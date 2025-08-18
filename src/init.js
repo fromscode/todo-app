@@ -1,10 +1,9 @@
-import { displayProjectName, displayTodos } from './dom.js';
+import displayProject from './dom.js';
 import addAllListeners from './addEventListeners.js';
 
 
 function initialize(project) {
-    displayProjectName(project);
-    displayTodos(project);
+    displayProject(project);
 
     addAllListeners(project);
 }

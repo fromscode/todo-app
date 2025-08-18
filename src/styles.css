@@ -85,7 +85,8 @@ tr > * {
 }
 
 form {
+    margin-top: 20px;
     max-width: 25%;
-    display: flex;
+    display: none;
     flex-direction: column;
 }

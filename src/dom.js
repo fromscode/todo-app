@@ -55,4 +55,16 @@ function displayProjectName(project) {
     h1.textContent += project.getName();
 }
 
-export { displayProjectName, displayTodos };
+function displayAddButton(project) {
+    const addBtn = document.querySelector(".add-btn");
+    addBtn.id = project.getId();
+}
+
+function displayProject(project) {
+    displayProjectName(project);
+    displayTodos(project);
+    displayAddButton(project);
+}
+
+export default displayProject;
+export {displayTodos};

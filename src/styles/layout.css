@@ -31,7 +31,7 @@ header {
 }
 
 .todo-subtitle {
-    min-height: 24px;
+    min-height: 10px;
     display: flex;
     gap: 10px;
 }
@@ -42,7 +42,6 @@ header {
 }
 
 .checkbox-holder {
-    display: flex;
     padding-right: 10px;
 }
 
@@ -51,7 +50,7 @@ header {
 }
 
 .checkbox {
-    margin-top: 10px;
+    margin: 30% 0px;
     width: 17px;
     height: 17px;
     border-radius: 50%;

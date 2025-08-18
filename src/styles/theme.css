@@ -6,6 +6,10 @@ li {
     border-top: 1px solid var(--color-card-border);
 }
 
+.todo-list:last-child  {
+    border-bottom: 1px solid var(--color-card-border);
+}
+
 .checkbox {
     border-color: black;
 }

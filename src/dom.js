@@ -18,7 +18,7 @@ function displayTodos(project) {
 
         checkboxHolder.append(checkbox);
 
-        
+
         const todoInfo = document.createElement("div");
         todoInfo.classList.add("todo-info");
 
@@ -30,11 +30,16 @@ function displayTodos(project) {
         const subtitle = document.createElement("div");
         subtitle.classList.add("todo-subtitle");
 
-        const dueDate = document.createElement("div");
-        dueDate.textContent = todo.getDueDate();
+        if (todo.getDueDate() !== null && todo.getDueDate() !== "") {
+            const dueDate = document.createElement("div");
+            dueDate.textContent = todo.getDueDate();
+            dueDate.classList.add("dueDate");
+            subtitle.append(dueDate);
+        }
 
         const priority = document.createElement("div");
         priority.textContent = todo.getPriority();
+        priority.classList.add("priority");
         if (priority.textContent == "None") {
             priority.textContent = "";
         }
@@ -42,7 +47,7 @@ function displayTodos(project) {
             priority.classList.add(priority.textContent);
         }
 
-        subtitle.append(dueDate, priority);
+        subtitle.append(priority);
 
         if (todo.getCompleted()) {
             checkbox.classList.add("selected");
@@ -81,4 +86,4 @@ function displayProject(project) {
 }
 
 export default displayProject;
-export {displayTodos};
+export { displayTodos };

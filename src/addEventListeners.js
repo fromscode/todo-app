@@ -57,6 +57,10 @@ function addSubmitButtonListener(project) {
             priority, notes
         );
 
+        const form = document.querySelector("form");
+        form.classList.toggle("flex");
+        form.classList.toggle("column");
+
         project.addTodo(todo);
         displayTodos(project);
         addAllTodoListeners(project);

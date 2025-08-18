@@ -2,6 +2,7 @@ import './styles/reset.css';
 import './styles/styles.css';
 import './styles/fonts.css';
 import './styles/layout.css';
+import './styles/display.css';
 
 import createTodo from './todo.js';
 import createProject from './project.js';

@@ -16,13 +16,4 @@ tr>* {
 form {
     margin-top: 20px;
     max-width: 25%;
-    display: none;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex.column {
-    flex-direction: column;
 }

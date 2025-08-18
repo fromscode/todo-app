@@ -1,4 +1,5 @@
 import { displayTodos } from './dom.js';
+import createTodo from './todo.js';
 
 function addToggleListeners(project) {
     const toggleBtns = document.querySelectorAll(".toggleButton");
@@ -39,12 +40,33 @@ function addAddButtonListener(project) {
         const form = document.querySelector("form");
         form.classList.toggle("flex");
         form.classList.toggle("column");
+        form.id = project.getId();
+    })
+}
+
+function addSubmitButtonListener(project) {
+    const submitBtn = document.querySelector("#submit-btn");
+    submitBtn.addEventListener('click', () => {
+        const title = document.querySelector("#title").value;
+        const description = document.querySelector("#description").value;
+        const dueDate = document.querySelector("#dueDate").value;
+        const priority = document.querySelector("#priority").value;
+        const notes = document.querySelector("#notes").value;
+
+        const todo = createTodo(title, description, dueDate, 
+            priority, notes
+        );
+
+        project.addTodo(todo);
+        displayTodos(project);
+        addAllTodoListeners(project);
     })
 }
 
 function addAllListeners(project) {
     addAllTodoListeners(project);
     addAddButtonListener(project);
+    addSubmitButtonListener(project);
 }
 
 export default addAllListeners;

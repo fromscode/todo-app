@@ -53,10 +53,10 @@ function addSubmitButtonListener(project) {
     const submitBtn = document.querySelector("#submit-btn");
     submitBtn.addEventListener('click', () => {
         const title = document.querySelector("#title").value;
-        const description = document.querySelector("#description").value;
-        const dueDate = document.querySelector("#dueDate").value;
-        const priority = document.querySelector("#priority").value;
-        const notes = document.querySelector("#notes").value;
+        const description = document.querySelector("#description").value || "";
+        const dueDate = document.querySelector("#dueDate").value || "";
+        const priority = document.querySelector("#priority").value || "";
+        const notes = document.querySelector("#notes").value || "";
 
         const todo = createTodo(title, description, dueDate, 
             priority, notes

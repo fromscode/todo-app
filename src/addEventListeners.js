@@ -63,6 +63,14 @@ function addSubmitButtonListener(project) {
     })
 }
 
+function addSidebarCollapseEventListener() {
+    const btn = document.querySelector(".collapse-btn");
+
+    btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle("collapsed");
+    })
+}
+
 function addAllListeners(project) {
     addAllTodoListeners(project);
     addAddButtonListener(project);
@@ -70,3 +78,4 @@ function addAllListeners(project) {
 }
 
 export default addAllListeners;
+export {addSidebarCollapseEventListener};

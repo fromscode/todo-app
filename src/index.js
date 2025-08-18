@@ -6,6 +6,9 @@ import './styles/layout.css';
 import createTodo from './todo.js';
 import createProject from './project.js';
 import initialize from './init.js';
+import { addSidebarCollapseEventListener } from './addEventListeners.js';
+
+addSidebarCollapseEventListener();
 
 const defaultProject = createProject("default");
 

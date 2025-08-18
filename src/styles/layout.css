@@ -17,3 +17,7 @@ body {
     flex: 1;
     background-color: #e8f3f6;
 }
+
+li {
+    border-top: 1px solid rgb(193, 193, 193);
+}

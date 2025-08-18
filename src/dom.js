@@ -1,30 +1,29 @@
-const tBody = document.querySelector("tbody");
+const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
 
 function displayTodos(project) {
     const todoList = project.getTodoList();
-    clearTable();
+    clearTodos();
     for (const todo of todoList) {
-        const tr = document.createElement("tr");
-        tr.id = todo.getId();
 
-        const title = document.createElement("td");
+        const li = document.createElement("li");
+        li.id = todo.getId();
+
+        const title = document.createElement("div");
         title.textContent = todo.getTitle();
 
-        const desc = document.createElement("td");
-        desc.textContent = todo.getDescription();
+        const secondDiv = document.createElement("div");
+        secondDiv.classList.add("todo-info");
 
-        const dueDate = document.createElement("td");
+        const dueDate = document.createElement("div");
         dueDate.textContent = todo.getDueDate();
 
-        const priority = document.createElement("td");
+        const priority = document.createElement("div");
         priority.textContent = todo.getPriority();
 
-        const notes = document.createElement("td");
-        notes.textContent = todo.getNotes();
+        secondDiv.append(dueDate, priority);
 
         const completed = document.createElement("td");
-        completed.textContent = todo.getCompleted() ? "Yes" : "No";
 
         const toggleButton = document.createElement("td");
         const tBtn = document.createElement("button");
@@ -40,15 +39,14 @@ function displayTodos(project) {
         rBtn.className = "removeButton"
         removeButton.append(rBtn);
 
-        tr.append(title, desc, dueDate, priority, notes, completed,
-            toggleButton, removeButton);
+        li.append(title, secondDiv);
 
-        tBody.append(tr);
+        ul.append(li);
     }
 }
 
-function clearTable() {
-    tBody.textContent = "";
+function clearTodos() {
+    ul.textContent = "";
 }
 
 function displayProjectName(project) {

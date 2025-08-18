@@ -34,6 +34,12 @@ function displayTodos(project) {
 
         const priority = document.createElement("div");
         priority.textContent = todo.getPriority();
+        if (priority.textContent == "None") {
+            priority.textContent = "";
+        }
+        else {
+            priority.classList.add(priority.textContent);
+        }
 
         subtitle.append(dueDate, priority);
 

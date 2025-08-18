@@ -46,3 +46,20 @@
     opacity: 0.3;
     text-decoration-line: line-through;
 }
+
+.Extreme {
+    /* color: red; */
+    color: #D32F2F;
+}
+
+.High {
+    color: #ff8001;
+}
+
+.Medium {
+    color: #FBC02D;
+}
+
+.Low {
+    color: #56bd5b;
+}

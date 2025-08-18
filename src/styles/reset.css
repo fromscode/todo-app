@@ -69,36 +69,3 @@ h6 {
 }
 
 /* RESET ENDS HERE */
-
-table {
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-
-body {
-    font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
-    font-weight: normal;
-
-    background-color: beige;
-}
-
-tr>* {
-    margin: 0px;
-    padding: 2px;
-    border: 2px solid black;
-}
-
-form {
-    margin-top: 20px;
-    max-width: 25%;
-    display: none;
-}
-
-.flex {
-    display: flex;
-}
-
-.flex.column {
-    flex-direction: column;
-}

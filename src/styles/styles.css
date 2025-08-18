@@ -1,0 +1,30 @@
+body {
+    font-weight: normal;
+
+    background-color: beige;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+tr>* {
+    margin: 0px;
+    padding: 2px;
+    border: 2px solid black;
+}
+
+form {
+    margin-top: 20px;
+    max-width: 25%;
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.column {
+    flex-direction: column;
+}

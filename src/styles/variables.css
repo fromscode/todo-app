@@ -1,0 +1,11 @@
+:root {
+    --color-sidebar: #DDDBDB;
+    --color-main: #E8F3F6;
+
+    --color-extreme-priority: #D32F2F;
+    --color-high-priority: #F57C00;
+    --color-medium-priority: #FBC02D;
+    --color-low-priority: #388E3C;
+
+    --font-base: "Inter", sans-serif;
+}

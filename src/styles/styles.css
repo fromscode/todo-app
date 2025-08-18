@@ -2,18 +2,28 @@ body {
     font-weight: normal;
 }
 
-table {
-    border-collapse: collapse;
-    margin-bottom: 20px;
+.checkbox.selected {
+    background-color: #4cafac;
+    border-color: #4cafac;
 }
 
-tr>* {
-    margin: 0px;
-    padding: 2px;
-    border: 2px solid black;
+.todo-info.completed {
+    opacity: 0.3;
+    text-decoration-line: line-through;
 }
 
-form {
-    margin-top: 20px;
-    max-width: 25%;
+.Extreme {
+    color: var(--color-extreme-priority);
+}
+
+.High {
+    color: var(--color-high-priority);
+}
+
+.Medium {
+    color: var(--color-medium-priority);
+}
+
+.Low {
+    color: var(--color-low-priority);
 }

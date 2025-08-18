@@ -18,6 +18,46 @@ body {
     background-color: #e8f3f6;
 }
 
+.none {
+    display: none;
+}
+
+.flex.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-subtitle {
+    display: flex;
+    gap: 10px;
+}
+
+.todo-card {
+    display: flex;
+    gap: 10px;
+}
+
+.checkbox-holder {
+    display: flex;
+}
+
+.todo-info {
+    flex: 1;
+}
+
 li {
     border-top: 1px solid rgb(193, 193, 193);
+}
+
+.checkbox {
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+form {
+    margin-top: 20px;
+    max-width: 25%;
 }

@@ -3,6 +3,7 @@ import './styles/styles.css';
 import './styles/fonts.css';
 import './styles/layout.css';
 import './styles/display.css';
+import './styles/variables.css';
 
 import createTodo from './todo.js';
 import createProject from './project.js';

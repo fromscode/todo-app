@@ -7,7 +7,6 @@ function addToggleListeners(project) {
     checkboxHolders.forEach(holder => {
         holder.addEventListener('click', () => {
             const todoId = holder.parentElement.id;
-            console.log(todoId);
             project.toggleTodo(todoId);
             displayTodos(project);
             addAllTodoListeners(project);

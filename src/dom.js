@@ -45,7 +45,9 @@ function displayTodos(project) {
 
         if (todo.getCompleted()) {
             checkbox.classList.add("selected");
+            checkbox.classList.add(todo.getPriority());
             todoInfo.classList.add("completed");
+
         }
 
 

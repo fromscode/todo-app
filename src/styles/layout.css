@@ -32,7 +32,6 @@ body {
 
 .todo-card {
     display: flex;
-    /* gap: 10px; */
 }
 
 .checkbox-holder {

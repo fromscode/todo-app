@@ -11,8 +11,26 @@ li {
 }
 
 .checkbox.selected {
-    background-color: #4cafac;
-    border-color: #4cafac;
+    background-color: #000;
+    border-color: #000;
+}
+
+.checkbox.selected.Extreme {
+    background-color: var(--color-extreme-priority);
+    border-color: var(--color-extreme-priority);
+}
+
+.checkbox.selected.High {
+    background-color: var(--color-high-priority);
+    border-color: var(--color-high-priority);
+}
+.checkbox.selected.Medium {
+    background-color: var(--color-medium-priority);
+    border-color: var(--color-medium-priority);
+}
+.checkbox.selected.Low {
+    background-color: var(--color-low-priority);
+    border-color: var(--color-low-priority);
 }
 
 .main {

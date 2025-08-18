@@ -8,12 +8,25 @@ function displayTodos(project) {
 
         const li = document.createElement("li");
         li.id = todo.getId();
+        li.classList.add("todo-card")
+
+        const checkboxHolder = document.createElement("div");
+        checkboxHolder.classList.add("checkbox-holder");
+
+        const checkbox = document.createElement("div");
+        checkbox.classList.add("checkbox");
+
+        checkboxHolder.append(checkbox);
+
+        
+        const todoInfo = document.createElement("div");
+
 
         const title = document.createElement("div");
         title.textContent = todo.getTitle();
 
-        const secondDiv = document.createElement("div");
-        secondDiv.classList.add("todo-info");
+        const subtitle = document.createElement("div");
+        subtitle.classList.add("todo-subtitle");
 
         const dueDate = document.createElement("div");
         dueDate.textContent = todo.getDueDate();
@@ -21,25 +34,11 @@ function displayTodos(project) {
         const priority = document.createElement("div");
         priority.textContent = todo.getPriority();
 
-        secondDiv.append(dueDate, priority);
+        subtitle.append(dueDate, priority);
 
-        const completed = document.createElement("td");
+        todoInfo.append(title, subtitle);
 
-        const toggleButton = document.createElement("td");
-        const tBtn = document.createElement("button");
-        tBtn.textContent = "Done / Undone";
-        tBtn.type = "button";
-        tBtn.className = "toggleButton"
-        toggleButton.append(tBtn);
-
-        const removeButton = document.createElement("td");
-        const rBtn = document.createElement("button");
-        rBtn.textContent = "Remove";
-        rBtn.type = "button";
-        rBtn.className = "removeButton"
-        removeButton.append(rBtn);
-
-        li.append(title, secondDiv);
+        li.append(checkboxHolder, todoInfo);
 
         ul.append(li);
     }

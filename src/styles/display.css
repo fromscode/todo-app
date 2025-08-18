@@ -11,7 +11,24 @@
     flex-direction: column;
 }
 
-.todo-info {
+.todo-subtitle {
     display: flex;
     gap: 10px;
+}
+
+.todo-card {
+    display: flex;
+    gap: 10px;
+}
+
+.checkbox {
+    margin-top: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.checkbox-holder {
+    display: flex;
 }

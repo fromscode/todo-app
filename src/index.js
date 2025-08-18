@@ -12,7 +12,7 @@ import { addSidebarCollapseEventListener } from './addEventListeners.js';
 
 addSidebarCollapseEventListener();
 
-const defaultProject = createProject("default");
+const defaultProject = createProject("Default");
 
 const todo1 = createTodo("lmao2", "just laugh brother", "whenever",
     "Extreme", "hell yea!"

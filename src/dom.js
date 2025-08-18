@@ -25,6 +25,7 @@ function displayTodos(project) {
 
         const title = document.createElement("div");
         title.textContent = todo.getTitle();
+        title.classList.add("todo-title");
 
         const subtitle = document.createElement("div");
         subtitle.classList.add("todo-subtitle");

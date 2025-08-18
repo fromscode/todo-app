@@ -68,6 +68,8 @@ h6 {
     isolation: isolate;
 }
 
+/* RESET ENDS HERE */
+
 table {
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -75,10 +77,13 @@ table {
 
 
 body {
+    font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    font-weight: normal;
+
     background-color: beige;
 }
 
-tr > * {
+tr>* {
     margin: 0px;
     padding: 2px;
     border: 2px solid black;

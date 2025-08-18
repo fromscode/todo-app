@@ -20,6 +20,7 @@ function displayTodos(project) {
 
         
         const todoInfo = document.createElement("div");
+        todoInfo.classList.add("todo-info");
 
 
         const title = document.createElement("div");
@@ -36,7 +37,14 @@ function displayTodos(project) {
 
         subtitle.append(dueDate, priority);
 
+        if (todo.getCompleted()) {
+            checkbox.classList.add("selected");
+            todoInfo.classList.add("completed");
+        }
+
+
         todoInfo.append(title, subtitle);
+
 
         li.append(checkboxHolder, todoInfo);
 

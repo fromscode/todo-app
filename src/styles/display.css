@@ -21,6 +21,10 @@
     gap: 10px;
 }
 
+.checkbox-holder {
+    display: flex;
+}
+
 .checkbox {
     margin-top: 5px;
     width: 15px;
@@ -29,6 +33,16 @@
     border: 1px solid black;
 }
 
-.checkbox-holder {
-    display: flex;
+.checkbox.selected {
+    background-color: #4cafac;
+    border-color: #4cafac;
+}
+
+.todo-info {
+    flex: 1;
+}
+
+.todo-info.completed {
+    opacity: 0.3;
+    text-decoration-line: line-through;
 }

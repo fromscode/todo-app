@@ -2,11 +2,11 @@ import { displayTodos } from './dom.js';
 import createTodo from './todo.js';
 
 function addToggleListeners(project) {
-    const toggleBtns = document.querySelectorAll(".toggleButton");
+    const checkboxHolders = document.querySelectorAll(".checkbox-holder");
 
-    toggleBtns.forEach(button => {
-        button.addEventListener('click', () => {
-            const todoId = button.parentElement.parentElement.id;
+    checkboxHolders.forEach(holder => {
+        holder.addEventListener('click', () => {
+            const todoId = holder.parentElement.id;
             console.log(todoId);
             project.toggleTodo(todoId);
             displayTodos(project);

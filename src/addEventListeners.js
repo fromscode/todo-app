@@ -51,7 +51,17 @@ function addCancelButtonListener() {
 
 function addSubmitButtonListener(project) {
     const submitBtn = document.querySelector("#submit-btn");
-    submitBtn.addEventListener('click', () => {
+    submitBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const form = document.querySelector("form");
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+
         const title = document.querySelector("#title").value;
         const description = document.querySelector("#description").value || "";
         const dueDate = document.querySelector("#dueDate").value || "";
@@ -62,7 +72,6 @@ function addSubmitButtonListener(project) {
             priority, notes
         );
 
-        const form = document.querySelector("form");
         project.addTodo(todo);
         displayTodos(project);
         addAllTodoListeners(project);

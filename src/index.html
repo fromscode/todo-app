@@ -25,27 +25,24 @@
         <div class="modal none">
 
             <form class="modal-content">
-                <input type="text" name="title" id="title" placeholder="Task Name">
+                <input type="text" name="title" id="title" placeholder="Task Name" 
+                required title="Please add task name">
 
-                <label for="description">Description: </label>
-                <input type="text" name="description" id="description">
-
-                <label for="description">Due Date: </label>
                 <input type="date" name="dueDate" id="dueDate">
 
                 <label for="priority">Priority: </label>
                 <select name="priority" id="priority">
+                    <option value="None" selected>None</option>
                     <option value="Extreme">Extreme</option>
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
                     <option value="Low">Low</option>
-                    <option value="None">None</option>
                 </select>
 
                 <label for="notes">Notes: </label>
                 <input type="text" id="notes">
 
-                <button type="button" id="submit-btn">Submit</button>
+                <button type="submit" id="submit-btn">Submit</button>
                 <button type="button" id="cancel-btn">Cancel</button>
             </form>
         </div>

@@ -36,10 +36,16 @@ function addAllTodoListeners(project) {
 function addAddButtonListener(project) {
     const addBtn = document.querySelector(".add-btn");
     addBtn.addEventListener('click', () => {
-        const form = document.querySelector("form");
-        form.classList.toggle("flex");
-        form.classList.toggle("column");
-        form.id = project.getId();
+        const div = document.querySelector(".modal");
+        div.classList.remove("none");
+        document.querySelector("form").id = project.getId();
+    })
+}
+
+function addCancelButtonListener() {
+    const btn = document.querySelector("#cancel-btn");
+    btn.addEventListener('click', () => {
+        document.querySelector(".modal").classList.add("none");
     })
 }
 
@@ -57,12 +63,10 @@ function addSubmitButtonListener(project) {
         );
 
         const form = document.querySelector("form");
-        form.classList.toggle("flex");
-        form.classList.toggle("column");
-
         project.addTodo(todo);
         displayTodos(project);
         addAllTodoListeners(project);
+        document.querySelector(".modal").classList.add("none");
     })
 }
 
@@ -78,6 +82,7 @@ function addAllListeners(project) {
     addAllTodoListeners(project);
     addAddButtonListener(project);
     addSubmitButtonListener(project);
+    addCancelButtonListener();
 }
 
 export default addAllListeners;

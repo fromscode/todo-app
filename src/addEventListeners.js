@@ -80,6 +80,20 @@ function addSubmitButtonListener(project) {
     })
 }
 
+function addNotesEventListener() {
+    const notes = document.querySelector("#notes");
+    notes.addEventListener("input", () => {
+        // notes.style.height = "auto";
+        notes.style.height = notes.scrollHeight + "px";
+    })
+}
+
+function addFormEventListeners(project) {
+    addSubmitButtonListener(project);
+    addNotesEventListener();
+    addCancelButtonListener();
+}
+
 function addSidebarCollapseEventListener() {
     const btn = document.querySelector(".collapse-btn");
 
@@ -91,8 +105,7 @@ function addSidebarCollapseEventListener() {
 function addAllListeners(project) {
     addAllTodoListeners(project);
     addAddButtonListener(project);
-    addSubmitButtonListener(project);
-    addCancelButtonListener();
+    addFormEventListeners(project);
 }
 
 export default addAllListeners;

@@ -4,6 +4,7 @@ import './styles/fonts.css';
 import './styles/layout.css';
 import './styles/variables.css';
 import './styles/theme.css';
+import './styles/form.css';
 
 import createTodo from './todo.js';
 import createProject from './project.js';

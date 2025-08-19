@@ -44,7 +44,7 @@ function displayTodos(project) {
             priority.textContent = "";
         }
         else {
-            priority.classList.add(priority.textContent);
+           priority.classList.add(todo.getPriority());
         }
 
         subtitle.append(priority);

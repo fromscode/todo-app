@@ -90,9 +90,16 @@ function addSubmitButtonListener(project) {
 
 function addNotesEventListener() {
     const notes = document.querySelector("#notes");
+    const form = document.querySelector("form");
     notes.addEventListener("input", () => {
-        // notes.style.height = "auto";
-        notes.style.height = notes.scrollHeight + "px";
+
+        notes.style.height = "";
+        form.style.paddingBottom = "";
+
+        if (notes.value !== "") {
+            notes.style.height = notes.scrollHeight + "px";
+            form.style.paddingBottom = notes.scrollHeight - 19 + "px";
+        }
     })
 }
 

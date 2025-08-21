@@ -42,11 +42,18 @@ function addAddButtonListener(project) {
     })
 }
 
-function addCancelButtonListener() {
-    const btn = document.querySelector("#cancel-btn");
-    btn.addEventListener('click', () => {
-        document.querySelector(".modal").classList.add("none");
+function addCancelAddTaskListener() {
+    const modal = document.querySelector(".modal")
+    modal.addEventListener('click', (event) => {
+        if (event.target.id === "outer-modal") {
+            event.target.classList.add("none");
+        }
     })
+}
+
+function addModalListeners(project) {
+    addAddButtonListener(project);
+    addCancelAddTaskListener();
 }
 
 function addSubmitButtonListener(project) {
@@ -76,6 +83,7 @@ function addSubmitButtonListener(project) {
         project.addTodo(todo);
         displayTodos(project);
         addAllTodoListeners(project);
+        form.reset();
         document.querySelector(".modal").classList.add("none");
     })
 }
@@ -91,7 +99,6 @@ function addNotesEventListener() {
 function addFormEventListeners(project) {
     addSubmitButtonListener(project);
     addNotesEventListener();
-    addCancelButtonListener();
 }
 
 function addSidebarCollapseEventListener() {
@@ -104,7 +111,7 @@ function addSidebarCollapseEventListener() {
 
 function addAllListeners(project) {
     addAllTodoListeners(project);
-    addAddButtonListener(project);
+    addModalListeners(project);
     addFormEventListeners(project);
 }
 

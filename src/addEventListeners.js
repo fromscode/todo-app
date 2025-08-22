@@ -141,7 +141,7 @@ function addSidebarCollapseEventListener() {
         btn.parentElement.classList.toggle("collapsed");
         btn.textContent = "";
         const img = document.createElement("img");
-        img.src = btn.parentElement.classList.length > 1 ? menuOpen : menu;
+        img.src = btn.parentElement.classList.length > 1 ? menu : menuOpen;
         btn.append(img);
 
         console.log(menu);

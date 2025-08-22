@@ -1,4 +1,5 @@
 import deleteIcon from './assets/icons/delete.svg';
+import editIcon from './assets/icons/edit.svg';
 
 const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
@@ -61,6 +62,13 @@ function displayTodos(project) {
 
         todoInfo.append(title, subtitle);
 
+        const editBtn = document.createElement("button");
+        editBtn.type = "button";
+        const editIconImg = document.createElement("img");
+        editIconImg.src = editIcon;
+        editBtn.append(editIconImg);
+        editBtn.classList.add("edit-btn");
+
         const removeBtn = document.createElement("button");
         removeBtn.type = "button";
         const icon = document.createElement("img");
@@ -68,7 +76,7 @@ function displayTodos(project) {
         removeBtn.append(icon);
         removeBtn.classList.add("remove-btn");
 
-        li.append(checkboxHolder, todoInfo, removeBtn);
+        li.append(checkboxHolder, todoInfo, editBtn, removeBtn);
 
         ul.append(li);
     }

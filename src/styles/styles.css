@@ -1,5 +1,10 @@
 body {
     font-weight: normal;
+    font-size: 1.1rem;
+}
+
+.sidebar {
+    transition: 0.3s ease;
 }
 
 .todo-info.completed {

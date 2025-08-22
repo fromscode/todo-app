@@ -68,7 +68,8 @@ li {
 .add-btn {
     display: flex;
     align-items: center;
-    padding: 0px 10px;
+    gap: 7px;
+    padding: 0px 7px 0px 5px;
     background-color: var(--color-add-btn);
     border-color: var(--color-add-btn);
 }

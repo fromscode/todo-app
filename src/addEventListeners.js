@@ -15,11 +15,11 @@ function addToggleListeners(project) {
 }
 
 function addRemoveListeners(project) {
-    const removeBtns = document.querySelectorAll(".removeButton");
+    const removeBtns = document.querySelectorAll(".remove-btn");
 
     removeBtns.forEach(button => {
         button.addEventListener('click', () => {
-            const todoId = button.parentElement.parentElement.id;
+            const todoId = button.parentElement.id;
             console.log(todoId);
             project.removeTodo(todoId);
             displayTodos(project);

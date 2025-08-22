@@ -59,8 +59,12 @@ function displayTodos(project) {
 
         todoInfo.append(title, subtitle);
 
+        const removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.textContent = "Remove";
+        removeBtn.classList.add("remove-btn");
 
-        li.append(checkboxHolder, todoInfo);
+        li.append(checkboxHolder, todoInfo, removeBtn);
 
         ul.append(li);
     }

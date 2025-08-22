@@ -101,5 +101,17 @@ function displayProject(project) {
     displayAddButton(project);
 }
 
+function displayEditForm(project, todoId, title, dueDate, priority, notes) {
+    const editForm = document.querySelector("#edit-form");
+    editForm.querySelector("#title").value = title;
+    editForm.querySelector("#dueDate").value = dueDate;
+    if (priority) editForm.querySelector("#priority").value = priority;
+    editForm.querySelector("#notes").value = notes;
+
+    document.querySelector("#edit-modal").classList.remove("none");
+    const hidden = document.querySelector("#hidden");
+    hidden.value = todoId;
+}
+
 export default displayProject;
-export { displayTodos };
+export { displayTodos, displayEditForm };

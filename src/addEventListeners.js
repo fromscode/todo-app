@@ -1,4 +1,4 @@
-import { displayTodos } from './dom.js';
+import { displayTodos, displayEditForm } from './dom.js';
 import createTodo from './todo.js';
 import menu from './assets/icons/menu.svg';
 import menuOpen from './assets/icons/menu_open.svg';
@@ -56,9 +56,63 @@ function addRemoveModalEventListener(modal, project, todoId) {
     });
 }
 
+function addEditButtonListeners(project) {
+    const editBtnList = document.querySelectorAll(".edit-btn");
+    editBtnList.forEach(button => {
+        button.addEventListener('click', () => {
+            const parent = button.parentElement;
+            const todoId = parent.id;
+            const title = parent.querySelector(".todo-title").textContent;
+            const dueDate = parent.querySelector(".dueDate") ? parent.querySelector(".dueDate").textContent : "";
+            const priority = parent.querySelector(".priority").textContent;
+            // const notes = parent.querySelector("#notes").textContent;
+            const notes = "";
+
+            displayEditForm(project, todoId, title, dueDate, priority, notes);
+        })
+    })
+}
+
+function addEditFormButtonListener(project) {
+    const button = document.querySelector("#done-edit");
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(project.getTodoList()[0].getId());
+
+        const form = button.parentElement;
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+
+        const title = form.querySelector("#title").value;
+        const dueDate = form.querySelector("#dueDate").value;
+        const priority = form.querySelector("#priority").value;
+        const notes = form.querySelector("#notes").value;
+        const todoId = form.querySelector("#hidden").value;
+        project.editTodo(todoId, title, dueDate, priority, notes);
+
+        displayTodos(project);
+        addAllTodoListeners(project);
+        form.reset();
+        document.querySelector("#edit-modal").classList.add("none");
+    })
+
+
+    const modal = document.querySelector("#edit-modal");
+    modal.addEventListener('click', (event) => {
+        if (event.target.id === "edit-modal") {
+            modal.classList.add("none");
+        }
+    })
+}
+
 function addAllTodoListeners(project) {
     addToggleListeners(project);
     addRemoveListeners(project);
+    addEditButtonListeners(project);
 }
 
 function addAddButtonListener(project) {
@@ -73,7 +127,7 @@ function addAddButtonListener(project) {
 function addCancelAddTaskListener() {
     const modal = document.querySelector(".modal")
     modal.addEventListener('click', (event) => {
-        if (event.target.id === "outer-modal") {
+        if (event.target.id == "outer-modal") {
             event.target.classList.add("none");
         }
     })
@@ -82,6 +136,7 @@ function addCancelAddTaskListener() {
 function addModalListeners(project) {
     addAddButtonListener(project);
     addCancelAddTaskListener();
+    addEditFormButtonListener(project);
 }
 
 function addSubmitButtonListener(project) {
@@ -89,7 +144,7 @@ function addSubmitButtonListener(project) {
     submitBtn.addEventListener('click', (event) => {
         event.preventDefault();
 
-        const form = document.querySelector("form");
+        const form = submitBtn.parentElement;
 
         if (!form.checkValidity()) {
             form.reportValidity();

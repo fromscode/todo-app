@@ -25,10 +25,18 @@ function createTodo(title, dueDate, priority, notes) {
         console.log("Completed?:" + isCompleted);
     }
 
+    const setTitle = (newTitle) => {title = newTitle};
+    const setDueDate = (newDate) => { dueDate = newDate };
+    const setPriority = (newPriority) => { priority = newPriority };
+    const setNotes = (newNotes) => { notes = newNotes };
+
     return {
-        setProjectId, getProjectId, getId, getTitle,
-        getDueDate, getPriority, getNotes, getCompleted, toggleComplete,
-        displayTodo
+       // getters
+        getId, getTitle, getDueDate, getPriority, getNotes, getCompleted, getProjectId,
+        // setters
+        setTitle, setDueDate, setPriority, setNotes, setProjectId,
+        // actions
+        toggleComplete, displayTodo
     };
 
 }

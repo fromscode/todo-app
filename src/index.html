@@ -53,6 +53,30 @@
                 <button type="button" id="modal-remove-btn">Remove</button>
             </div>
         </div>
+
+        <div class="modal none" id="edit-modal">
+
+            <form class="modal-content" id="edit-form">
+                <input type="text" name="title" id="title" placeholder="Task Name" 
+                required title="Please add task name">
+
+                <input type="date" name="dueDate" id="dueDate">
+
+                <select name="priority" id="priority">
+                    <option value="None" selected>Priority</option>
+                    <option value="Extreme">Extreme</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                    <option value="None">None</option>
+                </select>
+
+                <textarea name="notes" id="notes" placeholder="Notes"></textarea>
+                <input type="hidden" name="hidden" id="hidden">
+
+                <button type="submit" id="done-edit">Done</button>
+            </form>
+        </div>
     </main>
 </body>
 

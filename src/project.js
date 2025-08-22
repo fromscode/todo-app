@@ -36,9 +36,17 @@ function createProject(name) {
         }
     }
 
+    const editTodo = (todoId, title, dueDate, priority, notes) => {
+        const todo = todoList.find(temp => temp.getId() === todoId);
+        todo.setTitle(title);
+        todo.setDueDate(dueDate);
+        todo.setPriority(priority);
+        todo.setNotes(notes);
+    }
+
 
     return { getId, getTodoList, toggleTodo, 
-        addTodo, removeTodo, displayProject, getName };
+        addTodo, removeTodo, displayProject, getName, editTodo };
 }
 
 export default createProject;

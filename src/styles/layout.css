@@ -11,12 +11,16 @@ header {
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: 250px;
     flex-shrink: 0;
+    align-items: flex-end;
 }
 
 .sidebar.collapsed {
     width: 50px;
+    align-items: center;
 }
 
 .main {
@@ -82,4 +86,16 @@ header {
     justify-content: center;
     align-self: flex-end;
     justify-self: center;
+}
+
+.collapse-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+}
+
+.collapse-btn:hover {
+    background-color: grey;
 }

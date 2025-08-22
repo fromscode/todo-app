@@ -14,6 +14,7 @@ function displayIcons() {
     const collapseBtn = document.querySelector(".collapse-btn");
     const icon = document.createElement("img");
     icon.src = menu;
+    icon.classList.add("menu-icon");
     collapseBtn.append(icon);
 }
 

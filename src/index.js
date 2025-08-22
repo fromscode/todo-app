@@ -15,23 +15,23 @@ addSidebarCollapseEventListener();
 
 const defaultProject = createProject("Default");
 
-const todo1 = createTodo("lmao2", "just laugh brother", "whenever",
+const todo1 = createTodo("lmao2", "whenever",
     "Extreme", "hell yea!"
 );
 
-const todo2 = createTodo("lmao", "just laugh brother", "whenever",
+const todo2 = createTodo("lmao", "whenever",
     "High", "hell yea!"
 );
 
-const todo3 = createTodo("lmao2", "just laugh brother", "whenever",
+const todo3 = createTodo("lmao2", "whenever",
     "Medium", "hell yea!"
 );
 
-const todo4 = createTodo("lmao2", "just laugh brother", "whenever",
+const todo4 = createTodo("lmao2", "whenever",
     "Low", "hell yea!"
 );
 
-const todo5 = createTodo("lmao2", "just laugh brother", "whenever",
+const todo5 = createTodo("lmao2", "whenever",
     "None", "hell yea!"
 );
 

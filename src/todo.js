@@ -1,4 +1,4 @@
-function createTodo(title, description, dueDate, priority, notes) {
+function createTodo(title, dueDate, priority, notes) {
 
     let id = crypto.randomUUID();
     let isCompleted = false;
@@ -9,7 +9,6 @@ function createTodo(title, description, dueDate, priority, notes) {
 
     const getId = () => id;
     const getTitle = () => title;
-    const getDescription = () => description;
     const getDueDate = () => dueDate;
     const getPriority = () => priority;
     const getNotes = () => notes;
@@ -19,7 +18,6 @@ function createTodo(title, description, dueDate, priority, notes) {
     const displayTodo = () => {
         console.log("Id: " + id);
         console.log("Title: " + title);
-        console.log("Description: " + description);
         console.log("Due Date: " + dueDate);
         console.log("Priority: " + priority);
         console.log("Notes: " + notes);
@@ -28,7 +26,7 @@ function createTodo(title, description, dueDate, priority, notes) {
     }
 
     return {
-        setProjectId, getProjectId, getId, getTitle, getDescription,
+        setProjectId, getProjectId, getId, getTitle,
         getDueDate, getPriority, getNotes, getCompleted, toggleComplete,
         displayTodo
     };

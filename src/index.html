@@ -39,12 +39,19 @@
                     <option value="None">None</option>
                 </select>
 
-                <!-- <input type="text" id="notes" placeholder="Notes"> -->
                 <textarea name="notes" id="notes" placeholder="Notes"></textarea>
 
                 <button type="submit" id="submit-btn">Add task</button>
-                <!-- <button type="button" id="cancel-btn">Cancel</button> -->
             </form>
+        </div>
+
+        <div class="modal none" id="outer-remove-btn-modal">
+            <div class="modal-content" id="remove-btn-modal-content">
+                <p>You have not completed the task yet.</p>
+                <p>Are you sure you want to remove?</p>
+
+                <button type="button" id="modal-remove-btn">Remove</button>
+            </div>
         </div>
     </main>
 </body>

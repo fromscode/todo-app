@@ -84,3 +84,13 @@ li {
     background-color: var(--color-main);
     border-color: var(--color-main);
 }
+
+#modal-remove-btn {
+    background-color: var(--color-remove-btn);
+    border: none;
+}
+
+#modal-remove-btn:hover {
+    background-color: var(--color-remove-btn-hover);
+    color: var(--color-main);
+}

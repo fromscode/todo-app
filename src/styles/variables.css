@@ -15,4 +15,7 @@
 
     --color-add-btn: skyblue;
     --color-add-btn-hover: rgb(42, 160, 206);
+
+    --color-remove-btn: rgb(246, 142, 142);
+    --color-remove-btn-hover: rgb(255, 0, 0);
 }

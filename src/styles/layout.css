@@ -68,3 +68,18 @@ header {
 .none {
     display: none;
 }
+
+#remove-btn-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2em;
+}
+
+#modal-remove-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    justify-self: center;
+}

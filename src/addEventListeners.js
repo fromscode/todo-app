@@ -21,11 +21,37 @@ function addRemoveListeners(project) {
         button.addEventListener('click', () => {
             const todoId = button.parentElement.id;
             console.log(todoId);
-            project.removeTodo(todoId);
-            displayTodos(project);
-            addAllTodoListeners(project);
+
+            const div = button.parentElement.querySelector(".todo-info");
+
+            if (div.classList.length > 1) {
+                project.removeTodo(todoId);
+                displayTodos(project);
+                addAllTodoListeners(project);
+            }
+            else {
+                console.log("res");
+                const modal = document.querySelector("#outer-remove-btn-modal");
+                modal.classList.remove("none");
+                addRemoveModalEventListener(modal, project, todoId);
+            }
         })
     })
+}
+
+function addRemoveModalEventListener(modal, project, todoId) {
+    const removeBtn = document.querySelector("#modal-remove-btn");
+    removeBtn.addEventListener('click', () => {
+        modal.classList.add("none");
+        project.removeTodo(todoId);
+        displayTodos(project);
+        addAllTodoListeners(project);
+    });
+
+    const outerModal = document.querySelector("#outer-remove-btn-modal");
+    outerModal.addEventListener('click', () => {
+        modal.classList.add("none");
+    });
 }
 
 function addAllTodoListeners(project) {
@@ -70,13 +96,11 @@ function addSubmitButtonListener(project) {
 
 
         const title = document.querySelector("#title").value;
-        // const description = document.querySelector("#description").value;
-        const description = "";
         const dueDate = document.querySelector("#dueDate").value;
         const priority = document.querySelector("#priority").value;
         const notes = document.querySelector("#notes").value;
 
-        const todo = createTodo(title, description, dueDate, 
+        const todo = createTodo(title, dueDate,
             priority, notes
         );
 
@@ -123,4 +147,4 @@ function addAllListeners(project) {
 }
 
 export default addAllListeners;
-export {addSidebarCollapseEventListener};
+export { addSidebarCollapseEventListener };

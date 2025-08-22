@@ -1,5 +1,7 @@
 import { displayTodos } from './dom.js';
 import createTodo from './todo.js';
+import menu from './assets/icons/menu.svg';
+import menuOpen from './assets/icons/menu_open.svg';
 
 function addToggleListeners(project) {
     const checkboxHolders = document.querySelectorAll(".checkbox-holder");
@@ -137,6 +139,12 @@ function addSidebarCollapseEventListener() {
 
     btn.addEventListener('click', () => {
         btn.parentElement.classList.toggle("collapsed");
+        btn.textContent = "";
+        const img = document.createElement("img");
+        img.src = btn.parentElement.classList.length > 1 ? menuOpen : menu;
+        btn.append(img);
+
+        console.log(menu);
     })
 }
 

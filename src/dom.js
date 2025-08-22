@@ -1,3 +1,5 @@
+import deleteIcon from './assets/icons/delete.svg';
+
 const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
 
@@ -61,7 +63,9 @@ function displayTodos(project) {
 
         const removeBtn = document.createElement("button");
         removeBtn.type = "button";
-        removeBtn.textContent = "Remove";
+        const icon = document.createElement("img");
+        icon.src = deleteIcon;
+        removeBtn.append(icon);
         removeBtn.classList.add("remove-btn");
 
         li.append(checkboxHolder, todoInfo, removeBtn);

@@ -116,12 +116,17 @@ header {
     border-radius: 10px;
 }
 
-.project-list li:hover {
+.project-list .project-name:hover {
     background-color: var(--color-card-border);
 }
 
-.project-list h3 {
+.project-list h4 {
+    font-size: 1.05em;
     display: flex;
     gap: 5px;
     margin-bottom: 10px;
+}
+
+.add-project-name {
+    margin-top: 10px;
 }

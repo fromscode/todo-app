@@ -2,6 +2,7 @@ import displayProject from './dom.js';
 import addAllListeners, { addAllDynamicListeners } from './addEventListeners.js';
 import menu from './assets/icons/menu_open.svg';
 import add from './assets/icons/add.svg';
+import addProject from './assets/icons/add_project.svg';
 import projectIconRed from './assets/icons/project_red.svg';
 import projectIconYellow from './assets/icons/project_yellow.svg';
 import projectIconBlack from './assets/icons/project_black.svg';
@@ -72,6 +73,17 @@ function displayAllProjectNames(projectList, defaultProject) {
             li.classList.add("current");
         }
     }
+
+    const li = document.createElement("li");
+    li.classList.add("add-project-name");
+    const icon = document.createElement("img");
+    icon.src = addProject;
+    li.append(icon);
+
+    const addProjectSpan = document.createElement("span");
+    addProjectSpan.textContent = "Add project";
+    li.appendChild(addProjectSpan);
+    ul.append(li);
 }
 
 export default initialize;

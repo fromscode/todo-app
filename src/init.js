@@ -2,6 +2,8 @@ import displayProject from './dom.js';
 import addAllListeners from './addEventListeners.js';
 import menu from './assets/icons/menu_open.svg';
 import add from './assets/icons/add.svg';
+import projectIcon from './assets/icons/project.svg';
+import allProjectIcons from './assets/icons/all_projects.svg';
 
 function initialize(projectList, project) {
     displayProject(project);
@@ -33,11 +35,20 @@ function displayAddIcon() {
 
 function displayAllProjectNames(projectList) {
     const ul = document.querySelector(".project-list");
+    ul.querySelector("#all-project-icon").src = allProjectIcons;
+    ul.classList.add("flex", "column");
 
     for (const project of projectList) {
         const li = document.createElement("li");
         li.classList.add("project-name");
-        li.textContent = project.getName();
+        const icon = document.createElement("img");
+        icon.src = projectIcon;
+        li.append(icon);
+
+        const projectName = document.createElement("span");
+        projectName.textContent = project.getName();
+        li.appendChild(projectName);
+        li.id = project.getId();
         ul.append(li);
     }
 }

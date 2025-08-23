@@ -14,7 +14,6 @@ header {
     display: flex;
     width: 250px;
     flex-shrink: 0;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -100,4 +99,23 @@ header {
 
 .collapse-btn:hover {
     background-color: grey;
+}
+
+.project-name {
+    margin-bottom: 5px;
+}
+
+.project-list {
+    margin-left: 10px;
+}
+
+.project-list li {
+    display: flex;
+    gap: 15px;
+}
+
+.project-list h2 {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
 }

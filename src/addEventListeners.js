@@ -215,7 +215,9 @@ function addSidebarCollapseEventListener() {
 
     btn.addEventListener('click', () => {
         btn.parentElement.classList.toggle("collapsed");
-        btn.parentElement.querySelector("ul").classList.toggle("none");
+        btn.parentElement.querySelector(".project-list").classList.toggle("flex");
+        btn.parentElement.querySelector(".project-list").classList.toggle("column");
+        btn.parentElement.querySelector(".project-list").classList.toggle("none");
         btn.firstChild.src = btn.parentElement.classList.length > 1 ? menu : menuOpen;
         console.log(menu);
     })

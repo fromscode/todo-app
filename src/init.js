@@ -1,5 +1,5 @@
 import displayProject from './dom.js';
-import addAllListeners, { addAllTodoListeners } from './addEventListeners.js';
+import addAllListeners, { addAllDynamicListeners } from './addEventListeners.js';
 import menu from './assets/icons/menu_open.svg';
 import add from './assets/icons/add.svg';
 import projectIconRed from './assets/icons/project_red.svg';
@@ -12,13 +12,16 @@ function initialize(projectList, project) {
     displayProject(project);
     displayIcons();
     displayAllProjectNames(projectList, project);
-
+    console.log(project.getId());
     addAllListeners(project);
 }
 
-function changeProject(projectList, project) {
+function reload(projectList, project) {
     displayProject(project);
-    addAllTodoListeners(project);
+    displayIcons();
+    displayAllProjectNames(projectList, project);
+    console.log(project.getId());
+    addAllDynamicListeners(project);
 }
 
 function displayIcons() {
@@ -54,7 +57,7 @@ function displayAllProjectNames(projectList, defaultProject) {
     const projectIcons = [projectIconYellow, projectIconRed, projectIconGreen, projectIconBlack];
     let index = 0;
 
-    for (const project of projectList) {
+    for (const project of projectList.list) {
         const li = document.createElement("li");
         li.classList.add("project-name");
         const icon = document.createElement("img");
@@ -74,4 +77,4 @@ function displayAllProjectNames(projectList, defaultProject) {
 }
 
 export default initialize;
-export { changeProject }
+export {reload};

@@ -2,9 +2,8 @@ import { displayTodos, displayEditForm } from './dom.js';
 import createTodo from './todo.js';
 import menu from './assets/icons/menu.svg';
 import menuOpen from './assets/icons/menu_open.svg';
-import projectList from './index.js';
-import {changeProject} from './init.js';
-import initialize from './init.js';
+import projectList from './projectList.js';
+import {reload} from './init.js';
 
 function addToggleListeners(project) {
     const checkboxHolders = document.querySelectorAll(".checkbox-holder");
@@ -74,6 +73,7 @@ function addEditButtonListeners(project) {
             const priority = parent.querySelector(".priority").textContent;
             const notes = parent.querySelector(".todo-notes").textContent;
             console.log("in edit button listener" + todoId);
+            console.log("pid" + project.getId());
 
             displayEditForm(project, todoId, title, dueDate, priority, notes);
         })
@@ -98,6 +98,7 @@ function addEditFormButtonListener(project) {
         const priority = form.querySelector("#priority").value;
         const notes = form.querySelector("#notes").value;
         const todoId = form.querySelector("#hidden").value;
+        console.log("pid: " + project.getId());
         console.log("in edit form listener " + todoId);
         console.log("in edit form listener " + title);
         console.log("in edit form listener " + priority);
@@ -137,7 +138,7 @@ function addAllTodoListeners(project) {
     addSeeButtonListeners(project);
 }
 
-function addAddButtonListener(project) {
+function addAddButtonListener() {
     const addBtn = document.querySelector(".add-btn");
     addBtn.addEventListener('click', () => {
         const div = document.querySelector(".modal");
@@ -161,9 +162,13 @@ function addModalListeners(project) {
     addEditFormButtonListener(project);
 }
 
-function addSubmitButtonListener(project) {
+function addSubmitButtonListener() {
     const submitBtn = document.querySelector("#submit-btn");
+
     submitBtn.addEventListener('click', (event) => {
+        const projectId = submitBtn.parentElement.id;
+        const project = projectList.getProject(projectId);
+        console.log("in actual button listener:" + project.getName());
         event.preventDefault();
 
         const form = submitBtn.parentElement;
@@ -188,7 +193,7 @@ function addSubmitButtonListener(project) {
         addAllTodoListeners(project);
         form.reset();
         document.querySelector(".modal").classList.add("none");
-    })
+    });
 }
 
 function addNotesEventListener() {
@@ -209,6 +214,7 @@ function addNotesEventListener() {
 }
 
 function addFormEventListeners(project) {
+    console.log("in add form event listener:" + project.getName());
     addSubmitButtonListener(project);
     addNotesEventListener();
 }
@@ -232,8 +238,9 @@ function addProjectNameListener() {
         projectName.addEventListener('click', () => {
             console.log("rest");
             const projectId = projectName.id;
-            const project = projectList.find(temp => temp.getId() === projectId);
-            initialize(projectList, project);
+            const project = projectList.getProject(projectId);
+            console.log(project.getId());
+            reload(projectList, project);
         })
     })
 }
@@ -245,5 +252,10 @@ function addAllListeners(project) {
     addProjectNameListener();
 }
 
+function addAllDynamicListeners(project) {
+    addAllTodoListeners(project);
+    addProjectNameListener();
+}
+
 export default addAllListeners;
-export { addSidebarCollapseEventListener, addAllTodoListeners };
+export { addSidebarCollapseEventListener, addAllDynamicListeners };

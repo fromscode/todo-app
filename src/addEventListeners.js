@@ -24,7 +24,6 @@ function addRemoveListeners(project) {
     removeBtns.forEach(button => {
         button.addEventListener('click', () => {
             const todoId = button.parentElement.id;
-            console.log(todoId);
 
             const div = button.parentElement.querySelector(".todo-info");
 
@@ -34,7 +33,6 @@ function addRemoveListeners(project) {
                 addAllTodoListeners(project);
             }
             else {
-                console.log("res");
                 const modal = document.querySelector("#outer-remove-btn-modal");
                 modal.classList.remove("none");
                 modal.querySelector("#hidden").value = todoId;
@@ -73,7 +71,6 @@ function addEditButtonListeners() {
             const dueDate = parent.querySelector(".dueDate") ? parent.querySelector(".dueDate").textContent : "";
             const priority = parent.querySelector(".priority").textContent;
             const notes = parent.querySelector(".todo-notes").textContent;
-            console.log("in edit button listener" + todoId);
 
             displayEditForm(projectId, todoId, title, dueDate, priority, notes);
         })
@@ -167,7 +164,6 @@ function addSubmitButtonListener() {
     submitBtn.addEventListener('click', (event) => {
         const projectId = submitBtn.parentElement.id;
         const project = projectList.getProject(projectId);
-        console.log("in actual button listener:" + project.getName());
         event.preventDefault();
 
         const form = submitBtn.parentElement;
@@ -213,7 +209,6 @@ function addNotesEventListener() {
 }
 
 function addFormEventListeners(project) {
-    console.log("in add form event listener:" + project.getName());
     addSubmitButtonListener(project);
     addNotesEventListener();
 }
@@ -227,7 +222,6 @@ function addSidebarCollapseEventListener() {
         btn.parentElement.querySelector(".project-list").classList.toggle("column");
         btn.parentElement.querySelector(".project-list").classList.toggle("none");
         btn.firstChild.src = btn.parentElement.classList.length > 1 ? menu : menuOpen;
-        console.log(menu);
     })
 }
 
@@ -235,10 +229,8 @@ function addProjectNameListener() {
     const projectNameList = document.querySelectorAll(".project-name");
     projectNameList.forEach(projectName => {
         projectName.addEventListener('click', () => {
-            console.log("rest");
             const projectId = projectName.id;
             const project = projectList.getProject(projectId);
-            console.log(project.getId());
             reload(projectList, project);
         })
     })

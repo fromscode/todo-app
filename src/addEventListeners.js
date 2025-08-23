@@ -71,6 +71,7 @@ function addEditButtonListeners(project) {
             const priority = parent.querySelector(".priority").textContent;
             // const notes = parent.querySelector("#notes").textContent;
             const notes = "";
+            console.log("in edit button listener" + todoId);
 
             displayEditForm(project, todoId, title, dueDate, priority, notes);
         })
@@ -81,7 +82,6 @@ function addEditFormButtonListener(project) {
     const button = document.querySelector("#done-edit");
     button.addEventListener('click', (event) => {
         event.preventDefault();
-        console.log(project.getTodoList()[0].getId());
 
         const form = button.parentElement;
 
@@ -96,6 +96,9 @@ function addEditFormButtonListener(project) {
         const priority = form.querySelector("#priority").value;
         const notes = form.querySelector("#notes").value;
         const todoId = form.querySelector("#hidden").value;
+        console.log("in edit form listener "+ todoId);
+        console.log("in edit form listener "+ title);
+        console.log("in edit form listener "+ priority);
         project.editTodo(todoId, title, dueDate, priority, notes);
 
         displayTodos(project);

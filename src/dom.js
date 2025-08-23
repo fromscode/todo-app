@@ -109,8 +109,9 @@ function displayEditForm(project, todoId, title, dueDate, priority, notes) {
     editForm.querySelector("#notes").value = notes;
 
     document.querySelector("#edit-modal").classList.remove("none");
-    const hidden = document.querySelector("#hidden");
+    const hidden = editForm.querySelector("#hidden");
     hidden.value = todoId;
+    console.log( "in display form " + hidden.value);
 }
 
 export default displayProject;

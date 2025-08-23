@@ -29,6 +29,15 @@ function createProject(name) {
         }
     }
 
+    const toggleTodoFolded = (todoId) => {
+        for (const todo of todoList) {
+            if (todo.getId() === todoId) {
+                todo.toggleFolded();
+                break;
+            }
+        }
+    }
+
     const displayProject = () => {
         console.log("Project Id: " + id);
         for (const todo of todoList) {
@@ -45,7 +54,7 @@ function createProject(name) {
     }
 
 
-    return { getId, getTodoList, toggleTodo, 
+    return { getId, getTodoList, toggleTodo, toggleTodoFolded,
         addTodo, removeTodo, displayProject, getName, editTodo };
 }
 

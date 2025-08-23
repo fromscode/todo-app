@@ -116,10 +116,23 @@ function addEditFormButtonListener(project) {
     })
 }
 
+function addSeeButtonListeners(project) {
+    const seeBtnList = document.querySelectorAll(".see-btn");
+    seeBtnList.forEach(button => {
+        button.addEventListener('click', () => {
+            const todoId = button.parentElement.id;
+            project.toggleTodoFolded(todoId);
+            displayTodos(project);
+            addAllTodoListeners(project);
+        })
+    })
+}
+
 function addAllTodoListeners(project) {
     addToggleListeners(project);
     addRemoveListeners(project);
     addEditButtonListeners(project);
+    addSeeButtonListeners(project);
 }
 
 function addAddButtonListener(project) {

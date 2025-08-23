@@ -3,6 +3,7 @@ function createTodo(title, dueDate, priority, notes) {
     let id = crypto.randomUUID();
     let isCompleted = false;
     let projectId;
+    let folded = false;         // an attribute to tell dom.js whether to show the notes of this todo or not
 
     const setProjectId = (pId) => { projectId = pId };
     const getProjectId = () => projectId;
@@ -13,8 +14,10 @@ function createTodo(title, dueDate, priority, notes) {
     const getPriority = () => priority;
     const getNotes = () => notes;
     const getCompleted = () => isCompleted;
+    const getFolded = () => folded;
 
     const toggleComplete = () => { isCompleted = !isCompleted; }
+    const toggleFolded = () => { folded = !folded; }
     const displayTodo = () => {
         console.log("Id: " + id);
         console.log("Title: " + title);
@@ -32,11 +35,11 @@ function createTodo(title, dueDate, priority, notes) {
 
     return {
        // getters
-        getId, getTitle, getDueDate, getPriority, getNotes, getCompleted, getProjectId,
+        getId, getTitle, getDueDate, getPriority, getNotes, getCompleted, getProjectId, getFolded,
         // setters
         setTitle, setDueDate, setPriority, setNotes, setProjectId,
         // actions
-        toggleComplete, displayTodo
+        toggleComplete, displayTodo, toggleFolded
     };
 
 }

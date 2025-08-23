@@ -66,3 +66,14 @@ body {
 .edit-btn:hover {
     background-color: var(--color-add-btn);
 }
+
+.see-btn {
+    margin-right: 10px;
+    border: none;
+    background-color: inherit;
+    border-radius: 10px;
+}
+
+.see-btn:hover {
+    background-color: var(--color-card-border);
+}

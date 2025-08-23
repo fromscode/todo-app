@@ -1,10 +1,13 @@
 import deleteIcon from './assets/icons/delete.svg';
 import editIcon from './assets/icons/edit.svg';
+import seeIcon from './assets/icons/see.svg';
+import unseeIcon from './assets/icons/unsee.svg';
 
 const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
 
 function displayTodos(project) {
+    console.log("res");
     const todoList = project.getTodoList();
     clearTodos();
     for (const todo of todoList) {
@@ -47,7 +50,7 @@ function displayTodos(project) {
             priority.textContent = "";
         }
         else {
-           priority.classList.add(todo.getPriority());
+            priority.classList.add(todo.getPriority());
         }
 
         subtitle.append(priority);
@@ -61,6 +64,18 @@ function displayTodos(project) {
 
 
         todoInfo.append(title, subtitle);
+
+        const seeBtn = document.createElement("button");
+        seeBtn.type = "button";
+        const seeIconImg = document.createElement("img");
+        seeBtn.classList.add("see-btn");
+
+        if (todo.getFolded()) seeIconImg.src = seeIcon;
+        else {
+            seeIconImg.src = unseeIcon;
+            seeBtn.classList.add("open")
+        }
+        seeBtn.append(seeIconImg);
 
         const editBtn = document.createElement("button");
         editBtn.type = "button";
@@ -76,7 +91,7 @@ function displayTodos(project) {
         removeBtn.append(icon);
         removeBtn.classList.add("remove-btn");
 
-        li.append(checkboxHolder, todoInfo, editBtn, removeBtn);
+        li.append(checkboxHolder, todoInfo, seeBtn, editBtn, removeBtn);
 
         ul.append(li);
     }
@@ -111,7 +126,7 @@ function displayEditForm(project, todoId, title, dueDate, priority, notes) {
     document.querySelector("#edit-modal").classList.remove("none");
     const hidden = editForm.querySelector("#hidden");
     hidden.value = todoId;
-    console.log( "in display form " + hidden.value);
+    console.log("in display form " + hidden.value);
 }
 
 export default displayProject;

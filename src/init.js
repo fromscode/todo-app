@@ -1,5 +1,5 @@
 import displayProject from './dom.js';
-import addAllListeners from './addEventListeners.js';
+import addAllListeners, { addAllTodoListeners } from './addEventListeners.js';
 import menu from './assets/icons/menu_open.svg';
 import add from './assets/icons/add.svg';
 import projectIconRed from './assets/icons/project_red.svg';
@@ -11,9 +11,14 @@ import allProjectIcons from './assets/icons/all_projects.svg';
 function initialize(projectList, project) {
     displayProject(project);
     displayIcons();
+    displayAllProjectNames(projectList, project);
 
     addAllListeners(project);
-    displayAllProjectNames(projectList, project);
+}
+
+function changeProject(projectList, project) {
+    displayProject(project);
+    addAllTodoListeners(project);
 }
 
 function displayIcons() {
@@ -63,3 +68,4 @@ function displayAllProjectNames(projectList, defaultProject) {
 }
 
 export default initialize;
+export { changeProject }

@@ -39,10 +39,10 @@ const todo5 = createTodo("lmao2", "12-18-2022",
 
 
 defaultProject.addTodo(todo1);
-defaultProject.addTodo(todo2);
-defaultProject.addTodo(todo3);
+project2.addTodo(todo2);
+project3.addTodo(todo3);
 defaultProject.addTodo(todo4);
-defaultProject.addTodo(todo5);
+project2.addTodo(todo5);
 
 const projectList = [defaultProject, project2, project3];
 

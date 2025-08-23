@@ -4,6 +4,7 @@ import menu from './assets/icons/menu.svg';
 import menuOpen from './assets/icons/menu_open.svg';
 import projectList from './index.js';
 import {changeProject} from './init.js';
+import initialize from './init.js';
 
 function addToggleListeners(project) {
     const checkboxHolders = document.querySelectorAll(".checkbox-holder");
@@ -141,7 +142,7 @@ function addAddButtonListener(project) {
     addBtn.addEventListener('click', () => {
         const div = document.querySelector(".modal");
         div.classList.remove("none");
-        document.querySelector("form").id = project.getId();
+        div.querySelector("form").id = addBtn.id;
     })
 }
 
@@ -232,7 +233,7 @@ function addProjectNameListener() {
             console.log("rest");
             const projectId = projectName.id;
             const project = projectList.find(temp => temp.getId() === projectId);
-            changeProject(projectList, project);
+            initialize(projectList, project);
         })
     })
 }

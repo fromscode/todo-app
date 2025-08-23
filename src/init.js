@@ -28,6 +28,8 @@ function displayIcons() {
 
 function displayMenuIcon() {
     const collapseBtn = document.querySelector(".collapse-btn");
+    const existingIcon = collapseBtn.querySelector("img");
+    if (existingIcon) existingIcon.remove();
     const icon = document.createElement("img");
     icon.src = menu;
     icon.classList.add("menu-icon");
@@ -36,6 +38,8 @@ function displayMenuIcon() {
 
 function displayAddIcon() {
     const addBtn = document.querySelector(".add-btn");
+    const existingIcon = addBtn.querySelector("img");
+    if (existingIcon) existingIcon.remove();
     const icon = document.createElement("img");
     icon.src = add;
     addBtn.prepend(icon);
@@ -44,6 +48,8 @@ function displayAddIcon() {
 function displayAllProjectNames(projectList, defaultProject) {
     const ul = document.querySelector(".project-list");
     ul.querySelector("#all-project-icon").src = allProjectIcons;
+    const existingNamesList = ul.querySelectorAll("li");
+    existingNamesList.forEach(name => name.remove());
     ul.classList.add("flex", "column");
     const projectIcons = [projectIconYellow, projectIconRed, projectIconGreen, projectIconBlack];
     let index = 0;

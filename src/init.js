@@ -12,7 +12,6 @@ function initialize(projectList, project) {
     displayProject(project);
     displayIcons();
     displayAllProjectNames(projectList, project);
-    console.log(project.getId());
     addAllListeners(project);
 }
 
@@ -20,7 +19,6 @@ function reload(projectList, project) {
     displayProject(project);
     displayIcons();
     displayAllProjectNames(projectList, project);
-    console.log(project.getId());
     addAllDynamicListeners(project);
 }
 

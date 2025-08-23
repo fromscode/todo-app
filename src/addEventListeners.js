@@ -62,10 +62,11 @@ function addRemoveModalEventListener(project) {
     });
 }
 
-function addEditButtonListeners(project) {
+function addEditButtonListeners() {
     const editBtnList = document.querySelectorAll(".edit-btn");
     editBtnList.forEach(button => {
         button.addEventListener('click', () => {
+            const projectId = document.querySelector(".add-btn").id;
             const parent = button.parentElement;
             const todoId = parent.id;
             const title = parent.querySelector(".todo-title").textContent;
@@ -73,15 +74,14 @@ function addEditButtonListeners(project) {
             const priority = parent.querySelector(".priority").textContent;
             const notes = parent.querySelector(".todo-notes").textContent;
             console.log("in edit button listener" + todoId);
-            console.log("pid" + project.getId());
 
-            displayEditForm(project, todoId, title, dueDate, priority, notes);
+            displayEditForm(projectId, todoId, title, dueDate, priority, notes);
         })
     })
 }
 
-function addEditFormButtonListener(project) {
-    const button = document.querySelector("#done-edit");
+function addEditFormButtonListener() {
+    const button = document.querySelector(".done-edit");
     button.addEventListener('click', (event) => {
         event.preventDefault();
 
@@ -92,16 +92,15 @@ function addEditFormButtonListener(project) {
             return;
         }
 
+        const projectId = form.querySelector(".done-edit").id;
+        const project = projectList.getProject(projectId);
+
 
         const title = form.querySelector("#title").value;
         const dueDate = form.querySelector("#dueDate").value;
         const priority = form.querySelector("#priority").value;
         const notes = form.querySelector("#notes").value;
         const todoId = form.querySelector("#hidden").value;
-        console.log("pid: " + project.getId());
-        console.log("in edit form listener " + todoId);
-        console.log("in edit form listener " + title);
-        console.log("in edit form listener " + priority);
         project.editTodo(todoId, title, dueDate, priority, notes);
 
         displayTodos(project);

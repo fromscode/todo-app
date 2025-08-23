@@ -123,7 +123,7 @@ function displayProject(project) {
     displayAddButton(project);
 }
 
-function displayEditForm(project, todoId, title, dueDate, priority, notes) {
+function displayEditForm(projectId, todoId, title, dueDate, priority, notes) {
     const editForm = document.querySelector("#edit-form");
     editForm.querySelector("#title").value = title;
     editForm.querySelector("#dueDate").value = dueDate;
@@ -133,7 +133,7 @@ function displayEditForm(project, todoId, title, dueDate, priority, notes) {
     document.querySelector("#edit-modal").classList.remove("none");
     const hidden = editForm.querySelector("#hidden");
     hidden.value = todoId;
-    console.log("in display form " + hidden.value);
+    editForm.querySelector(".done-edit").id = projectId;
 }
 
 export default displayProject;

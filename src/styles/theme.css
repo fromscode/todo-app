@@ -2,7 +2,7 @@
     background-color: var(--color-sidebar);
 }
 
-li {
+main  li {
     border-top: 1px solid var(--color-card-border);
 }
 

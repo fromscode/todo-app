@@ -14,6 +14,7 @@ import { addSidebarCollapseEventListener } from './addEventListeners.js';
 addSidebarCollapseEventListener();
 
 const defaultProject = createProject("Default");
+const project2 = createProject("another project");
 
 const todo1 = createTodo("lmao2", "12-18-2022",
     "Extreme", "hell yea!"
@@ -42,4 +43,6 @@ defaultProject.addTodo(todo3);
 defaultProject.addTodo(todo4);
 defaultProject.addTodo(todo5);
 
-initialize(defaultProject);
+const projectList = [defaultProject, project2];
+
+initialize(projectList, defaultProject);

@@ -27,7 +27,8 @@ form > * {
     min-width: 500px;
 }
 
-#submit-btn {
+#submit-btn,
+#done-edit {
     grid-row: 3 / 4;
     grid-column: 4 / 5;
     height: 30px;
@@ -41,7 +42,8 @@ form > * {
     align-self: center;
 }
 
-#submit-btn:hover {
+#submit-btn:hover,
+#done-edit:hover {
     background-color: var(--color-add-btn-hover);
 }
 

@@ -95,9 +95,9 @@ function addEditFormButtonListener(project) {
         const priority = form.querySelector("#priority").value;
         const notes = form.querySelector("#notes").value;
         const todoId = form.querySelector("#hidden").value;
-        console.log("in edit form listener "+ todoId);
-        console.log("in edit form listener "+ title);
-        console.log("in edit form listener "+ priority);
+        console.log("in edit form listener " + todoId);
+        console.log("in edit form listener " + title);
+        console.log("in edit form listener " + priority);
         project.editTodo(todoId, title, dueDate, priority, notes);
 
         displayTodos(project);
@@ -189,17 +189,19 @@ function addSubmitButtonListener(project) {
 }
 
 function addNotesEventListener() {
-    const notes = document.querySelector("#notes");
-    const form = document.querySelector("form");
-    notes.addEventListener("input", () => {
+    const notesList = document.querySelectorAll("#notes");
+    notesList.forEach(notes => {
+        const form = notes.parentElement;
+        notes.addEventListener("input", () => {
 
-        notes.style.height = "";
-        form.style.paddingBottom = "";
+            notes.style.height = "";
+            form.style.paddingBottom = "";
 
-        if (notes.value !== "") {
-            notes.style.height = notes.scrollHeight + "px";
-            form.style.paddingBottom = notes.scrollHeight - 19 + "px";
-        }
+            if (notes.value !== "") {
+                notes.style.height = notes.scrollHeight + "px";
+                form.style.paddingBottom = notes.scrollHeight - 19 + "px";
+            }
+        })
     })
 }
 

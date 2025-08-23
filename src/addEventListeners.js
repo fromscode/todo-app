@@ -43,10 +43,12 @@ function addRemoveListeners(project) {
     addRemoveModalEventListener(project);
 }
 
-function addRemoveModalEventListener(project) {
+function addRemoveModalEventListener() {
     const modal = document.querySelector("#outer-remove-btn-modal");
     const removeBtn = document.querySelector("#modal-remove-btn");
     removeBtn.addEventListener('click', () => {
+        const projectId = document.querySelector(".add-btn").id;
+        const project = projectList.getProject(projectId);
         modal.classList.add("none");
         const todoId = modal.querySelector("#hidden").value;
         project.removeTodo(todoId);

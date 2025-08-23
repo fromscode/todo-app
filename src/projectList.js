@@ -9,6 +9,12 @@ class projectList {
     }
 
     addProject(project) {
+        if (typeof project === "string") {
+            const newProject = createProject(project);
+            this.addProject(newProject);
+            return newProject;
+        }
+
         this.list.push(project);
     }
 
@@ -49,5 +55,7 @@ const list = new projectList();
 list.addProject(defaultProject);
 list.addProject(project2);
 list.addProject(project3);
+
+const emptyList = new projectList
 
 export default list;

@@ -236,16 +236,48 @@ function addProjectNameListener() {
     })
 }
 
+function addAddProjectListener() {
+    const addProject = document.querySelector(".add-project-name");
+    addProject.addEventListener('click', () => {
+        addProject.style.display = "none";
+        const form = document.querySelector(".sidebar form");
+        form.toggleAttribute("style");
+    });
+}
+
+function addAddProjectFormListener() {
+    const form = document.querySelector(".sidebar form");
+    const submitBtn = form.querySelector("button");
+    submitBtn.addEventListener('click', () => {
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const projectName = form.querySelector("#project-name").value;
+        if (projectName) {
+            const project = projectList.addProject(projectName);
+            reload(projectList, project);
+        }
+        form.reset();
+        form.style.display = "none";
+        document.querySelector(".add-project-name").toggleAttribute("style");
+    })
+}
+
 function addAllListeners(project) {
     addAllTodoListeners(project);
     addModalListeners(project);
     addFormEventListeners(project);
     addProjectNameListener();
+    addAddProjectListener();
+    addAddProjectFormListener();
 }
 
 function addAllDynamicListeners(project) {
     addAllTodoListeners(project);
     addProjectNameListener();
+    addAddProjectListener();
 }
 
 export default addAllListeners;

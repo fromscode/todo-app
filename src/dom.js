@@ -7,6 +7,7 @@ const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
 
 function displayTodos(project) {
+    if (!project) return;
     const todoList = project.getTodoList();
     clearTodos();
     for (const todo of todoList) {
@@ -109,10 +110,12 @@ function clearTodos() {
 }
 
 function displayProjectName(project) {
+    if (!project) return;
     h1.textContent = project.getName();
 }
 
 function displayAddButton(project) {
+    if (!project) return;
     const addBtn = document.querySelector(".add-btn");
     addBtn.id = project.getId();
 }

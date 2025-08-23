@@ -35,16 +35,20 @@ function addRemoveListeners(project) {
                 console.log("res");
                 const modal = document.querySelector("#outer-remove-btn-modal");
                 modal.classList.remove("none");
-                addRemoveModalEventListener(modal, project, todoId);
+                modal.querySelector("#hidden").value = todoId;
             }
         })
     })
+
+    addRemoveModalEventListener(project);
 }
 
-function addRemoveModalEventListener(modal, project, todoId) {
+function addRemoveModalEventListener(project) {
+    const modal = document.querySelector("#outer-remove-btn-modal");
     const removeBtn = document.querySelector("#modal-remove-btn");
     removeBtn.addEventListener('click', () => {
         modal.classList.add("none");
+        const todoId = modal.querySelector("#hidden").value;
         project.removeTodo(todoId);
         displayTodos(project);
         addAllTodoListeners(project);

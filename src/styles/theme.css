@@ -96,3 +96,7 @@ li {
     background-color: var(--color-remove-btn-hover);
     color: var(--color-main);
 }
+
+.todo-notes {
+    opacity: 0.8;
+}

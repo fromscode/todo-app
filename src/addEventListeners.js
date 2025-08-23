@@ -69,8 +69,7 @@ function addEditButtonListeners(project) {
             const title = parent.querySelector(".todo-title").textContent;
             const dueDate = parent.querySelector(".dueDate") ? parent.querySelector(".dueDate").textContent : "";
             const priority = parent.querySelector(".priority").textContent;
-            // const notes = parent.querySelector("#notes").textContent;
-            const notes = "";
+            const notes = parent.querySelector(".todo-notes").textContent;
             console.log("in edit button listener" + todoId);
 
             displayEditForm(project, todoId, title, dueDate, priority, notes);

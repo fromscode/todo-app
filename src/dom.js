@@ -70,7 +70,15 @@ function displayTodos(project) {
         const seeIconImg = document.createElement("img");
         seeBtn.classList.add("see-btn");
 
-        if (todo.getFolded()) seeIconImg.src = seeIcon;
+        const notes = document.createElement("div");
+        notes.textContent = todo.getNotes();
+        notes.classList.add("todo-notes");
+        todoInfo.appendChild(notes);
+
+        if (todo.getFolded()) {
+            seeIconImg.src = seeIcon;
+            notes.classList.add("none");
+        }
         else {
             seeIconImg.src = unseeIcon;
             seeBtn.classList.add("open")

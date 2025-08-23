@@ -3,7 +3,7 @@ function createTodo(title, dueDate, priority, notes) {
     let id = crypto.randomUUID();
     let isCompleted = false;
     let projectId;
-    let folded = false;         // an attribute to tell dom.js whether to show the notes of this todo or not
+    let folded = true;         // an attribute to tell dom.js whether to show the notes of this todo or not
 
     const setProjectId = (pId) => { projectId = pId };
     const getProjectId = () => projectId;

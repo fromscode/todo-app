@@ -107,14 +107,20 @@ header {
 
 .project-list {
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .project-list li {
     display: flex;
     gap: 15px;
+    border-radius: 10px;
 }
 
-.project-list h2 {
+.project-list li:hover {
+    background-color: var(--color-card-border);
+}
+
+.project-list h3 {
     display: flex;
     gap: 5px;
     margin-bottom: 10px;

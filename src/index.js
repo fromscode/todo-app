@@ -47,3 +47,4 @@ defaultProject.addTodo(todo5);
 const projectList = [defaultProject, project2, project3];
 
 initialize(projectList, defaultProject);
+export default projectList;

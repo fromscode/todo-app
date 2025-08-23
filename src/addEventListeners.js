@@ -2,6 +2,8 @@ import { displayTodos, displayEditForm } from './dom.js';
 import createTodo from './todo.js';
 import menu from './assets/icons/menu.svg';
 import menuOpen from './assets/icons/menu_open.svg';
+import projectList from './index.js';
+import initialize from './init.js';
 
 function addToggleListeners(project) {
     const checkboxHolders = document.querySelectorAll(".checkbox-holder");
@@ -223,10 +225,22 @@ function addSidebarCollapseEventListener() {
     })
 }
 
+function addProjectNameListener() {
+    const projectNameList = document.querySelectorAll(".project-name");
+    projectNameList.forEach(projectName => {
+        projectName.addEventListener('click', () => {
+            const projectId = projectName.getId();
+            const project = projectId.find(temp => temp.getId() === projectId);
+            initialize(projectList, project);
+        })
+    })
+}
+
 function addAllListeners(project) {
     addAllTodoListeners(project);
     addModalListeners(project);
     addFormEventListeners(project);
+    addProjectNameListener();
 }
 
 export default addAllListeners;

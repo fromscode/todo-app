@@ -13,7 +13,7 @@ function initialize(projectList, project) {
     displayIcons();
 
     addAllListeners(project);
-    displayAllProjectNames(projectList);
+    displayAllProjectNames(projectList, project);
 }
 
 function displayIcons() {
@@ -36,7 +36,7 @@ function displayAddIcon() {
     addBtn.prepend(icon);
 }
 
-function displayAllProjectNames(projectList) {
+function displayAllProjectNames(projectList, defaultProject) {
     const ul = document.querySelector(".project-list");
     ul.querySelector("#all-project-icon").src = allProjectIcons;
     ul.classList.add("flex", "column");
@@ -56,6 +56,9 @@ function displayAllProjectNames(projectList) {
         li.appendChild(projectName);
         li.id = project.getId();
         ul.append(li);
+        if(project.getId() === defaultProject.getId()) {
+            li.classList.add("current");
+        }
     }
 }
 

@@ -100,3 +100,7 @@ main  li {
 .todo-notes {
     opacity: 0.8;
 }
+
+.project-name.current {
+    background-color: var(--color-add-btn);
+}

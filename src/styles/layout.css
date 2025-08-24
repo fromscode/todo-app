@@ -154,10 +154,15 @@ header {
     display: flex;
     align-items: center;
     gap: 7px;
-    padding: 0px 9px 0p x 5px;
+    padding: 0px 9px 0px 5px;
     border: none;
     border-radius: 10px;
     height: 30px;
+}
+
+.sort.sort-priorities {
+    gap: 0px;
+    padding: 0px 6px 0px 0px;
 }
 
 .remove-completed {

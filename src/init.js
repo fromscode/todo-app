@@ -1,5 +1,7 @@
 import displayProject from './dom.js';
 import addAllListeners, { addAllDynamicListeners } from './addEventListeners.js';
+
+
 import menu from './assets/icons/menu_open.svg';
 import add from './assets/icons/add.svg';
 import addProject from './assets/icons/add_project.svg';
@@ -8,6 +10,9 @@ import projectIconYellow from './assets/icons/project_yellow.svg';
 import projectIconBlack from './assets/icons/project_black.svg';
 import projectIconGreen from './assets/icons/project_green.svg';
 import allProjectIcons from './assets/icons/all_projects.svg';
+import clearIcon from './assets/icons/clear.svg';
+import datesSortIcon from './assets/icons/dates_sort.svg';
+import prioritySortIcon from './assets/icons/priority_sort.svg';
 
 function initialize(projectList, project) {
     displayProject(project);
@@ -26,6 +31,9 @@ function reload(projectList, project) {
 function displayIcons() {
     displayMenuIcon();
     displayAddIcon();
+    displaySortDatesIcons();
+    displaySortPrioritiesIcons();
+    displayClear();
 }
 
 function displayMenuIcon() {
@@ -44,6 +52,33 @@ function displayAddIcon() {
     if (existingIcon) existingIcon.remove();
     const icon = document.createElement("img");
     icon.src = add;
+    addBtn.prepend(icon);
+}
+
+function displaySortDatesIcons() {
+    const addBtn = document.querySelector(".sort-dates");
+    const existingIcon = addBtn.querySelector("img");
+    if (existingIcon) existingIcon.remove();
+    const icon = document.createElement("img");
+    icon.src = datesSortIcon;
+    addBtn.prepend(icon);
+}
+
+function displaySortPrioritiesIcons() {
+    const addBtn = document.querySelector(".sort-priorities");
+    const existingIcon = addBtn.querySelector("img");
+    if (existingIcon) existingIcon.remove();
+    const icon = document.createElement("img");
+    icon.src = prioritySortIcon;
+    addBtn.prepend(icon);
+}
+
+function displayClear() {
+    const addBtn = document.querySelector(".clear");
+    const existingIcon = addBtn.querySelector("img");
+    if (existingIcon) existingIcon.remove();
+    const icon = document.createElement("img");
+    icon.src = clearIcon;
     addBtn.prepend(icon);
 }
 

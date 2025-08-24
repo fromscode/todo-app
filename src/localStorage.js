@@ -38,7 +38,7 @@ function accessStorage() {
         for (const rawTodo of rawProject.todoList) {
             console.log(rawJSONList);
             const todo = createTodo(rawTodo.title, format(rawTodo.dueDate, "yyyy-MM-dd"), rawTodo.priority, rawTodo.notes);
-            if (rawTodo.completed) {
+            if (rawTodo.isCompleted) {
                 todo.toggleComplete();
             }
             if (!rawTodo.folded) {
@@ -52,6 +52,11 @@ function accessStorage() {
     }
 }
 
+function updateLocalStorage() {
+    localStorage.setItem("projectList", JSON.stringify(list.toJSON()));
+}
+
 checkPopulation();
 
 export default list;
+export {updateLocalStorage};

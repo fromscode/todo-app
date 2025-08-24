@@ -3,6 +3,7 @@ import editIcon from './assets/icons/edit.svg';
 import seeIcon from './assets/icons/see.svg';
 import unseeIcon from './assets/icons/unsee.svg';
 import { format, intlFormatDistance } from 'date-fns';
+import { updateLocalStorage } from './localStorage';
 
 const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
@@ -127,6 +128,8 @@ function displayTodos(project) {
 
         ul.append(li);
     }
+
+    updateLocalStorage();
 }
 
 function clearTodos() {

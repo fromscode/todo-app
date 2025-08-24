@@ -5,6 +5,7 @@ import menuOpen from './assets/icons/menu_open.svg';
 import projectList from './localStorage.js';
 import {reload} from './init.js';
 import { format } from 'date-fns';
+import { updateLocalStorage } from './localStorage.js';
 
 function addToggleListeners(project) {
     const checkboxHolders = document.querySelectorAll(".checkbox-holder");

@@ -6,10 +6,10 @@ import './styles/variables.css';
 import './styles/theme.css';
 import './styles/form.css';
 
-import projectList from './projectList.js';
+import list from './localStorage.js';
 import initialize from './init.js';
 import { addSidebarCollapseEventListener } from './addEventListeners.js';
 
 addSidebarCollapseEventListener();
 
-initialize(projectList, projectList.list[0]);
+initialize(list, list.list[0]);

@@ -2,7 +2,7 @@ import { displayTodos, displayEditForm } from './dom.js';
 import createTodo from './todo.js';
 import menu from './assets/icons/menu.svg';
 import menuOpen from './assets/icons/menu_open.svg';
-import projectList from './projectList.js';
+import projectList from './localStorage.js';
 import {reload} from './init.js';
 import { format } from 'date-fns';
 

@@ -18,6 +18,12 @@ class projectList {
         this.list.push(project);
     }
 
+    toJSON() {
+        return {
+            list: this.list.map(p => p.toJSON())
+        };
+    }
+
 }
 
 const defaultProject = createProject("Default");
@@ -58,5 +64,5 @@ list.addProject(project3);
 
 const emptyList = new projectList
 
-export default list;
-// export default emptyList;
+// export default list;
+export default projectList;

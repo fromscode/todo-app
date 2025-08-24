@@ -53,9 +53,18 @@ function createProject(name) {
         todo.setNotes(notes);
     }
 
+    const toJSON = () => ({
+        id, name, 
+        todoList : todoList.map(todo => todo.toJSON())
+    });
+
+    const setId = (newId) => {id = newId;}
+
 
     return { getId, getTodoList, toggleTodo, toggleTodoFolded,
-        addTodo, removeTodo, displayProject, getName, editTodo };
+        addTodo, removeTodo, displayProject, getName, editTodo,
+        toJSON, setId
+     };
 }
 
 export default createProject;

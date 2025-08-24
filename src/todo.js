@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 function createTodo(title, dueDate, priority, notes) {
 
     let id = crypto.randomUUID();
@@ -33,13 +35,23 @@ function createTodo(title, dueDate, priority, notes) {
     const setPriority = (newPriority) => { priority = newPriority };
     const setNotes = (newNotes) => { notes = newNotes };
 
+
+    const toJSON = () => ({
+        id, title, dueDate : format(dueDate, "yyyy-MM-dd"), priority, notes, isCompleted, projectId, folded
+    });
+
+    const setId = (newId) => {id = newId;}
+
     return {
        // getters
         getId, getTitle, getDueDate, getPriority, getNotes, getCompleted, getProjectId, getFolded,
         // setters
         setTitle, setDueDate, setPriority, setNotes, setProjectId,
         // actions
-        toggleComplete, displayTodo, toggleFolded
+        toggleComplete, displayTodo, toggleFolded,
+
+        // for local storage
+        toJSON, setId
     };
 
 }

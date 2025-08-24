@@ -17,7 +17,7 @@ body {
 }
 
 .add-btn {
-    height: 30px;
+    min-height: 30px;
     min-width: 50px;
     border-radius: 10px;
     border: 1px solid;

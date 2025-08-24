@@ -5,9 +5,9 @@ import menuOpen from './assets/icons/menu_open.svg';
 import projectList from './localStorage.js';
 import {reload} from './init.js';
 import { format } from 'date-fns';
-import { updateLocalStorage } from './localStorage.js';
 
 function addToggleListeners(project) {
+    // console.log("project: " + project);
     const checkboxHolders = document.querySelectorAll(".checkbox-holder");
 
     checkboxHolders.forEach(holder => {
@@ -136,6 +136,7 @@ function addSeeButtonListeners(project) {
 }
 
 function addAllTodoListeners(project) {
+    // console.log("project" + project);
     addToggleListeners(project);
     addRemoveListeners(project);
     addEditButtonListeners(project);
@@ -276,6 +277,39 @@ function addAddProjectFormListener() {
     })
 }
 
+function addSortOnPrioritiesListener() {
+    const datesBtn = document.querySelector(".sort-priorities");
+
+    datesBtn.addEventListener('click', () => {
+        console.log("test");
+        const pId = document.querySelector(".add-btn").id;
+        const project = projectList.getProject(pId);
+        project.sortOnPriorities();
+        displayTodos(project);
+        addAllTodoListeners(project);
+    })
+
+}
+
+function addSortOnDatesListener() {
+    const datesBtn = document.querySelector(".sort-dates");
+
+    datesBtn.addEventListener('click', () => {
+        console.log("test");
+        const pId = document.querySelector(".add-btn").id;
+        const project = projectList.getProject(pId);
+        project.sortOnDates();
+        displayTodos(project);
+        addAllTodoListeners(project);
+    })
+
+}
+
+function addAllRightButtonListeners() {
+    addSortOnDatesListener();
+    addSortOnPrioritiesListener();
+}
+
 function addAllListeners(project) {
     addAllTodoListeners(project);
     addModalListeners(project);
@@ -283,6 +317,8 @@ function addAllListeners(project) {
     addProjectNameListener();
     addAddProjectListener();
     addAddProjectFormListener();
+
+    addAllRightButtonListeners();
 }
 
 function addAllDynamicListeners(project) {

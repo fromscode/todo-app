@@ -2,6 +2,7 @@ import deleteIcon from './assets/icons/delete.svg';
 import editIcon from './assets/icons/edit.svg';
 import seeIcon from './assets/icons/see.svg';
 import unseeIcon from './assets/icons/unsee.svg';
+import { intlFormatDistance } from 'date-fns';
 
 const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
@@ -38,8 +39,25 @@ function displayTodos(project) {
 
         if (todo.getDueDate() !== null && todo.getDueDate() !== "") {
             const dueDate = document.createElement("div");
-            dueDate.textContent = todo.getDueDate();
+            const interval = intlFormatDistance(todo.getDueDate(), Date.now())
+            if (interval.endsWith("ago") || interval.endsWith("now")) {
+                dueDate.textContent = "Today";
+                dueDate.classList.add("Extreme");
+            }
+            else if (interval.startsWith("to")) {
+                dueDate.classList.add("High");
+                dueDate.textContent = "Tommorow";
+            }
+            else if (interval.endsWith("days")) {
+                dueDate.classList.add("Medium");
+                dueDate.textContent = interval[0].toUpperCase() + interval.slice(1);
+            }
+            else {
+                dueDate.classList.add("Low");
+                dueDate.textContent = interval[0].toUpperCase() + interval.slice(1);
+            }
             dueDate.classList.add("dueDate");
+
             subtitle.append(dueDate);
         }
 

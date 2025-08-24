@@ -24,23 +24,23 @@ const defaultProject = createProject("Default");
 const project2 = createProject("another project");
 const project3 = createProject("project 3");
 
-const todo1 = createTodo("lmao2", "12-18-2022",
+const todo1 = createTodo("lmao2", Date.now(),
     "Extreme", "hell yea!"
 );
 
-const todo2 = createTodo("lmao", "12-18-2022",
+const todo2 = createTodo("lmao", Date.now(),
     "High", "hell yea!"
 );
 
-const todo3 = createTodo("lmao2", "12-18-2022",
+const todo3 = createTodo("lmao2", Date.now(),
     "Medium", "hell yea!"
 );
 
-const todo4 = createTodo("lmao2", "12-18-2022",
+const todo4 = createTodo("lmao2", Date.now(),
     "Low", "hell yea!"
 );
 
-const todo5 = createTodo("lmao2", "12-18-2022",
+const todo5 = createTodo("lmao2", Date.now(),
     "None", "hell yea!"
 );
 

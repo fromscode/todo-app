@@ -134,3 +134,37 @@ header {
 .add-project-name {
     margin-top: 10px;
 }
+
+.sort-dates{
+    margin-left: auto;
+}
+
+.sort {
+    background-color: var(--color-high-priority);
+}
+
+.sort:hover {
+    background-color: var(--color-medium-priority);
+}
+
+.sort,
+.remove-completed {
+    margin-right: -5px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0px 9px 0p x 5px;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+}
+
+.remove-completed {
+    background-color: var(--color-extreme-priority);
+    color: var(--color-sidebar);
+}
+
+.remove-completed:hover {
+    background-color: var(--color-remove-btn-hover);
+}

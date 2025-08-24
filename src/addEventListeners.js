@@ -4,6 +4,7 @@ import menu from './assets/icons/menu.svg';
 import menuOpen from './assets/icons/menu_open.svg';
 import projectList from './projectList.js';
 import {reload} from './init.js';
+import { format } from 'date-fns';
 
 function addToggleListeners(project) {
     const checkboxHolders = document.querySelectorAll(".checkbox-holder");
@@ -70,11 +71,15 @@ function addEditButtonListeners() {
             const parent = button.parentElement;
             const todoId = parent.id;
             const title = parent.querySelector(".todo-title").textContent;
-            const dueDate = parent.querySelector(".dueDate") ? parent.querySelector(".dueDate").textContent : "";
+            const dueDate = parent.querySelector(".dueDate");
+            let actualDueDate = null;
+            if (dueDate) {
+                actualDueDate = dueDate.querySelector("div").textContent;
+            }
             const priority = parent.querySelector(".priority").textContent;
             const notes = parent.querySelector(".todo-notes").textContent;
 
-            displayEditForm(projectId, todoId, title, dueDate, priority, notes);
+            displayEditForm(projectId, todoId, title, actualDueDate, priority, notes);
         })
     })
 }
@@ -141,6 +146,9 @@ function addAddButtonListener() {
     addBtn.addEventListener('click', () => {
         const div = document.querySelector(".modal");
         div.classList.remove("none");
+        const dueDate = div.querySelector("#dueDate")
+        dueDate.setAttribute("min", format(Date.now(), "yyyy-MM-dd"));
+        dueDate.value = format(Date.now(), "yyyy-MM-dd");
         div.querySelector("form").id = addBtn.id;
     })
 }

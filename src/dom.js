@@ -2,7 +2,7 @@ import deleteIcon from './assets/icons/delete.svg';
 import editIcon from './assets/icons/edit.svg';
 import seeIcon from './assets/icons/see.svg';
 import unseeIcon from './assets/icons/unsee.svg';
-import { intlFormatDistance } from 'date-fns';
+import { format, intlFormatDistance } from 'date-fns';
 
 const ul = document.querySelector(".todo-list");
 const h1 = document.querySelector("h1");
@@ -57,6 +57,12 @@ function displayTodos(project) {
                 dueDate.textContent = interval[0].toUpperCase() + interval.slice(1);
             }
             dueDate.classList.add("dueDate");
+
+
+            const actualDueDate = document.createElement("div");
+            actualDueDate.textContent = format(todo.getDueDate(), "yyyy-MM-dd");
+            actualDueDate.hidden = true;
+            dueDate.append(actualDueDate);
 
             subtitle.append(dueDate);
         }
@@ -144,10 +150,12 @@ function displayProject(project) {
     displayAddButton(project);
 }
 
-function displayEditForm(projectId, todoId, title, dueDate, priority, notes) {
+function displayEditForm(projectId, todoId, title, actualDueDate, priority, notes) {
     const editForm = document.querySelector("#edit-form");
     editForm.querySelector("#title").value = title;
-    editForm.querySelector("#dueDate").value = dueDate;
+    const dueDate = editForm.querySelector("#dueDate");
+    dueDate.value = actualDueDate;
+    dueDate.setAttribute("min", format(Date.now(), "yyyy-MM-dd"));
     if (priority) editForm.querySelector("#priority").value = priority;
     editForm.querySelector("#notes").value = notes;
 

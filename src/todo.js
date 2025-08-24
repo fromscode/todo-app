@@ -37,7 +37,7 @@ function createTodo(title, dueDate, priority, notes) {
 
 
     const toJSON = () => ({
-        id, title, dueDate : format(dueDate, "yyyy-MM-dd"), priority, notes, isCompleted, projectId, folded
+        id, title, dueDate , priority, notes, isCompleted, projectId, folded
     });
 
     const setId = (newId) => {id = newId;}

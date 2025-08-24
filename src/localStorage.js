@@ -17,14 +17,7 @@ function checkPopulation() {
 function populateStorage() {        // when accessing first time
     const defaultProject = createProject("Default");
 
-    const todo1 = createTodo("lmao2", Date.now(),
-    "Extreme", "hell yea!"
-    );
-
-    defaultProject.addTodo(todo1);
     list.addProject(defaultProject);
-
-    console.log(list.toJSON());
 
     localStorage.setItem("projectList", JSON.stringify(list.toJSON()));
 }
@@ -37,13 +30,14 @@ function accessStorage() {
         project.setId(rawProject.id);
         for (const rawTodo of rawProject.todoList) {
             console.log(rawJSONList);
-            const todo = createTodo(rawTodo.title, format(rawTodo.dueDate, "yyyy-MM-dd"), rawTodo.priority, rawTodo.notes);
+            const todo = createTodo(rawTodo.title, "", rawTodo.priority, rawTodo.notes);
             if (rawTodo.isCompleted) {
                 todo.toggleComplete();
             }
             if (!rawTodo.folded) {
                 todo.toggleFolded();
             }
+            if (rawTodo.dueDate !== "") todo.setDueDate(format(rawTodo.dueDate, "yyyy-MM-dd"));
             todo.setId(rawTodo.id);
             project.addTodo(todo);
         }

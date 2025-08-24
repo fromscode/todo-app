@@ -1,3 +1,5 @@
+import { compareAsc } from "date-fns";
+
 function createProject(name) {
     let id = crypto.randomUUID();
     const todoList = [];
@@ -60,10 +62,23 @@ function createProject(name) {
 
     const setId = (newId) => {id = newId;}
 
+    const sortOnDates = () => {
+        todoList.sort((a, b) => compareAsc(a.getDueDate(), b.getDueDate()));
+    }
+
+    const priorityEnum = {"" : -1, null : -1, undefined : -1, 
+        "None" : 0, "Low" : 1, "Medium" : 2, "High" : 3, "Extreme" : 4};
+
+    const sortOnPriorities = () => {
+        todoList.sort((a, b) => {
+            return priorityEnum[b.getPriority()] - priorityEnum[a.getPriority()];
+        })
+    }
+
 
     return { getId, getTodoList, toggleTodo, toggleTodoFolded,
         addTodo, removeTodo, displayProject, getName, editTodo,
-        toJSON, setId
+        toJSON, setId, sortOnDates, sortOnPriorities
      };
 }
 

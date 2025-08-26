@@ -41,7 +41,6 @@ function createProject(name) {
     }
 
     const displayProject = () => {
-        console.log("Project Id: " + id);
         for (const todo of todoList) {
             todo.displayTodo();
         }

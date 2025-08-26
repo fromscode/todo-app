@@ -24,12 +24,10 @@ function populateStorage() {        // when accessing first time
 
 function accessStorage() {
     const rawJSONList = JSON.parse(localStorage.getItem("projectList"));
-    console.log(rawJSONList);
     for (const rawProject of rawJSONList.list) {
         const project = createProject(rawProject.name);
         project.setId(rawProject.id);
         for (const rawTodo of rawProject.todoList) {
-            console.log(rawJSONList);
             const todo = createTodo(rawTodo.title, "", rawTodo.priority, rawTodo.notes);
             if (rawTodo.isCompleted) {
                 todo.toggleComplete();

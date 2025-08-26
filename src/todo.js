@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 function createTodo(title, dueDate, priority, notes) {
 
     let id = crypto.randomUUID();
@@ -20,15 +18,6 @@ function createTodo(title, dueDate, priority, notes) {
 
     const toggleComplete = () => { isCompleted = !isCompleted; }
     const toggleFolded = () => { folded = !folded; }
-    const displayTodo = () => {
-        console.log("Id: " + id);
-        console.log("Title: " + title);
-        console.log("Due Date: " + dueDate);
-        console.log("Priority: " + priority);
-        console.log("Notes: " + notes);
-        console.log("Project Id: " + projectId);
-        console.log("Completed?:" + isCompleted);
-    }
 
     const setTitle = (newTitle) => {title = newTitle};
     const setDueDate = (newDate) => { dueDate = newDate };
@@ -48,7 +37,7 @@ function createTodo(title, dueDate, priority, notes) {
         // setters
         setTitle, setDueDate, setPriority, setNotes, setProjectId,
         // actions
-        toggleComplete, displayTodo, toggleFolded,
+        toggleComplete, toggleFolded,
 
         // for local storage
         toJSON, setId

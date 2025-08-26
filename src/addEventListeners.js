@@ -305,9 +305,21 @@ function addSortOnDatesListener() {
 
 }
 
+function addClearBtnEventListeners() {
+    const clearBtn = document.querySelector(".clear");
+    clearBtn.addEventListener('click', () => {
+        const pId = document.querySelector(".add-btn").id;
+        const project = projectList.getProject(pId);
+        project.removeCompleted();
+        displayTodos(project);
+        addAllTodoListeners(project);
+    })
+}
+
 function addAllRightButtonListeners() {
     addSortOnDatesListener();
     addSortOnPrioritiesListener();
+    addClearBtnEventListeners();
 }
 
 function addAllListeners(project) {

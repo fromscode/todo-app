@@ -34,3 +34,13 @@ project.sortOnPriorities();
 for (const todo of project.getTodoList()) {
     console.log(todo.getDueDate() + " " + todo.getPriority());
 }
+
+console.log("Rmove Completed: ")
+t1.toggleComplete();
+// t2.toggleComplete();
+
+project.removeCompleted();
+
+for (const todo of project.getTodoList()) {
+    console.log(todo.getDueDate() + " " + todo.getPriority() + " " + todo.getCompleted());
+}

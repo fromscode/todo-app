@@ -2,7 +2,7 @@ import { compareAsc } from "date-fns";
 
 function createProject(name) {
     let id = crypto.randomUUID();
-    const todoList = [];
+    let todoList = [];
 
     const getId = () => id;
     const getTodoList = () => todoList;
@@ -75,10 +75,14 @@ function createProject(name) {
         })
     }
 
+    const removeCompleted = () => {
+        todoList = todoList.filter(todo => !todo.getCompleted());
+    }
+
 
     return { getId, getTodoList, toggleTodo, toggleTodoFolded,
         addTodo, removeTodo, displayProject, getName, editTodo,
-        toJSON, setId, sortOnDates, sortOnPriorities
+        toJSON, setId, sortOnDates, sortOnPriorities, removeCompleted
      };
 }
 

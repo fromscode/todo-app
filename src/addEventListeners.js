@@ -5,6 +5,7 @@ import menuOpen from './assets/icons/menu_open.svg';
 import projectList from './localStorage.js';
 import {reload} from './init.js';
 import { format } from 'date-fns';
+import { updateLocalStorage } from './localStorage.js';
 
 function addToggleListeners(project) {
     // console.log("project: " + project);
@@ -243,10 +244,23 @@ function addSidebarCollapseEventListener() {
 function addProjectNameListener() {
     const projectNameList = document.querySelectorAll(".project-name");
     projectNameList.forEach(projectName => {
-        projectName.addEventListener('click', () => {
+        projectName.addEventListener('click', (event) => {
+            if (event.target.closest("button")) return; 
             const projectId = projectName.id;
             const project = projectList.getProject(projectId);
             reload(projectList, project);
+        })
+    })
+}
+
+function addCloseProjectEventListener() {
+    const closeBtnList = document.querySelectorAll(".close-btn");
+    closeBtnList.forEach(button => {
+        button.addEventListener('click', () => {
+            const projectId = button.parentElement.id;
+            projectList.removeProject(projectId);
+            reload(projectList);
+            displayTodos(projectList.list[0]);
         })
     })
 }
@@ -331,6 +345,7 @@ function addAllListeners(project) {
     addModalListeners(project);
     addFormEventListeners(project);
     addProjectNameListener();
+    addCloseProjectEventListener();
     addAddProjectListener();
     addAddProjectFormListener();
 
@@ -341,6 +356,7 @@ function addAllDynamicListeners(project) {
     addAllTodoListeners(project);
     addProjectNameListener();
     addAddProjectListener();
+    addCloseProjectEventListener();
 }
 
 export default addAllListeners;

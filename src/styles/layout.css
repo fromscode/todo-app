@@ -12,14 +12,14 @@ header {
 
 .sidebar {
     display: flex;
-    width: 250px;
     flex-shrink: 0;
     flex-direction: column;
 }
 
 .sidebar.collapsed {
+    min-width: none;
     width: 50px;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .main {

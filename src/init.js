@@ -13,6 +13,7 @@ import allProjectIcons from './assets/icons/all_projects.svg';
 import clearIcon from './assets/icons/clear.svg';
 import datesSortIcon from './assets/icons/dates_sort.svg';
 import prioritySortIcon from './assets/icons/priority_sort.svg';
+import closeIcon from './assets/icons/close.svg';
 
 function initialize(projectList, project) {
     displayProject(project);
@@ -103,8 +104,22 @@ function displayAllProjectNames(projectList, defaultProject) {
         projectName.textContent = project.getName();
         li.appendChild(projectName);
         li.id = project.getId();
+
+        if (project.getName() !== "Default") {
+            const closeButton = document.createElement("button");
+            closeButton.classList.add("close-btn");
+            const closeButtonIcon = document.createElement("img");
+            closeButtonIcon.id = "close-icon";
+            closeButtonIcon.src = closeIcon;
+            closeButton.append(closeButtonIcon);
+            li.appendChild(closeButton);
+        }
+
         ul.append(li);
-        if(project.getId() === defaultProject.getId()) {
+        if (!defaultProject) {
+            if (project.getName() === "Default") li.classList.add("current");
+        }
+        else if(project.getId() === defaultProject.getId()) {
             li.classList.add("current");
         }
     }
@@ -118,6 +133,7 @@ function displayAllProjectNames(projectList, defaultProject) {
     const addProjectSpan = document.createElement("span");
     addProjectSpan.textContent = "Add project";
     li.appendChild(addProjectSpan);
+
     ul.append(li);
 }
 

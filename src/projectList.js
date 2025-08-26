@@ -18,6 +18,12 @@ class projectList {
         this.list.push(project);
     }
 
+    removeProject(projectId) {
+        console.log(projectId);
+        this.list = this.list.filter(project => project.getId() !== projectId);
+        console.log(this.list);
+    }
+
     toJSON() {
         return {
             list: this.list.map(p => p.toJSON())

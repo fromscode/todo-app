@@ -90,3 +90,13 @@ body {
     font-size: 1.33em;
     font-weight: 600;
 }
+
+.close-btn {
+    border-radius: 10px;
+    border: none;
+    background-color: inherit;
+    margin-left: auto;
+}
+.close-btn:hover {
+    background-color: var(--color-remove-btn);
+}

@@ -98,7 +98,6 @@ header {
     border: none;
     border-radius: 10px;
     margin-left: auto;
-    margin-bottom: 50px;
 }
 
 .collapse-btn:hover {
@@ -173,4 +172,8 @@ header {
 
 .remove-completed:hover {
     background-color: var(--color-remove-btn-hover);
+}
+
+.app-name {
+    display: flex;
 }

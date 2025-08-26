@@ -230,10 +230,12 @@ function addSidebarCollapseEventListener() {
     const btn = document.querySelector(".collapse-btn");
 
     btn.addEventListener('click', () => {
-        btn.parentElement.classList.toggle("collapsed");
-        btn.parentElement.querySelector(".project-list").classList.toggle("flex");
-        btn.parentElement.querySelector(".project-list").classList.toggle("column");
-        btn.parentElement.querySelector(".project-list").classList.toggle("none");
+        btn.parentElement.querySelector("span").classList.toggle("none");
+        btn.parentElement.querySelector("span").classList.toggle("flex");
+        btn.parentElement.parentElement.classList.toggle("collapsed");
+        btn.parentElement.parentElement.querySelector(".project-list").classList.toggle("flex");
+        btn.parentElement.parentElement.querySelector(".project-list").classList.toggle("column");
+        btn.parentElement.parentElement.querySelector(".project-list").classList.toggle("none");
         btn.firstChild.src = btn.parentElement.classList.length > 1 ? menu : menuOpen;
     })
 }

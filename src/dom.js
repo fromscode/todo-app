@@ -155,7 +155,8 @@ function displayProject(project) {
 
 function displayEditForm(projectId, todoId, title, actualDueDate, priority, notes) {
     const editForm = document.querySelector("#edit-form");
-    editForm.querySelector("#title").value = title;
+    const titleField = editForm.querySelector("#title")
+    titleField.value = title;
     const dueDate = editForm.querySelector("#dueDate");
     dueDate.value = actualDueDate;
     dueDate.setAttribute("min", format(Date.now(), "yyyy-MM-dd"));
@@ -164,6 +165,7 @@ function displayEditForm(projectId, todoId, title, actualDueDate, priority, note
 
     document.querySelector("#edit-modal").classList.remove("none");
     const hidden = editForm.querySelector("#hidden");
+    titleField.focus();
     hidden.value = todoId;
     editForm.querySelector(".done-edit").id = projectId;
 }

@@ -152,6 +152,7 @@ function addAddButtonListener() {
         dueDate.setAttribute("min", format(Date.now(), "yyyy-MM-dd"));
         dueDate.value = format(Date.now(), "yyyy-MM-dd");
         div.querySelector("form").id = addBtn.id;
+        div.querySelector("#title").focus();
     })
 }
 
@@ -254,6 +255,7 @@ function addAddProjectListener() {
         addProject.style.display = "none";
         const form = document.querySelector(".sidebar form");
         form.toggleAttribute("style");
+        form.querySelector("#project-name").focus();
     });
 }
 

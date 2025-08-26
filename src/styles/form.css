@@ -8,7 +8,6 @@ main form {
 
 #title {
     grid-column: 1 / 5;
-    border-color: var(--color-card-border);
 }
 
 form > * {
@@ -20,7 +19,6 @@ form > * {
 }
 
 #title {
-    border: 2px solid var(--color-card-border);
     font-size: 1.5em;
     padding: 7px 7px 5px 7px;
     font-weight: bold;
@@ -75,4 +73,8 @@ form > * {
 
 .sidebar form button:hover {
     background-color: var(--color-add-btn-hover);
+}
+
+form > *:focus {
+    border: 2px solid var(--color-add-btn);
 }
